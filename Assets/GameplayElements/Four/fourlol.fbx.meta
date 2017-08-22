@@ -1,0 +1,393 @@
+fileFormatVersion: 2
+guid: 666c09a7b3598ac468b17d06cf009340
+timeCreated: 1503322728
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Boutons
+    100002: Cube
+    100004: Cube_2
+    100006: Cylinder
+    100008: Cylinder_1
+    100010: Cylinder_2
+    100012: Cylinder_3
+    100014: Cylinder_4
+    100016: Cylinder_5
+    100018: Cylinder_6
+    100020: Cylinder_7
+    100022: //RootNode
+    100024: Plaque1
+    100026: Plaque2
+    100028: Plaques
+    100030: Porte
+    400000: Boutons
+    400002: Cube
+    400004: Cube_2
+    400006: Cylinder
+    400008: Cylinder_1
+    400010: Cylinder_2
+    400012: Cylinder_3
+    400014: Cylinder_4
+    400016: Cylinder_5
+    400018: Cylinder_6
+    400020: Cylinder_7
+    400022: //RootNode
+    400024: Plaque1
+    400026: Plaque2
+    400028: Plaques
+    400030: Porte
+    2300000: Cube
+    2300002: Cube_2
+    2300004: Cylinder
+    2300006: Cylinder_1
+    2300008: Cylinder_2
+    2300010: Cylinder_3
+    2300012: Cylinder_4
+    2300014: Cylinder_5
+    2300016: Cylinder_6
+    2300018: Cylinder_7
+    2300020: Plaque1
+    2300022: Plaque2
+    2300024: Porte
+    3300000: Cube
+    3300002: Cube_2
+    3300004: Cylinder
+    3300006: Cylinder_1
+    3300008: Cylinder_2
+    3300010: Cylinder_3
+    3300012: Cylinder_4
+    3300014: Cylinder_5
+    3300016: Cylinder_6
+    3300018: Cylinder_7
+    3300020: Plaque1
+    3300022: Plaque2
+    3300024: Porte
+    4300000: Cylinder_3
+    4300002: Cylinder_2
+    4300004: Cylinder_1
+    4300006: Cylinder
+    4300008: Cylinder_7
+    4300010: Cylinder_6
+    4300012: Cylinder_5
+    4300014: Cylinder_4
+    4300016: Plaque1
+    4300018: Plaque2
+    4300020: Cube
+    4300022: Porte
+    4300024: Cube_2
+    7400000: ClosingDoor
+    7400002: OpeningDoor
+    7400004: Open
+    7400006: Closed
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ClosingDoor
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boutons
+        weight: 1
+      - path: Boutons/Cylinder_4
+        weight: 1
+      - path: Boutons/Cylinder_5
+        weight: 1
+      - path: Boutons/Cylinder_6
+        weight: 1
+      - path: Boutons/Cylinder_7
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Plaque1
+        weight: 1
+      - path: Plaque2
+        weight: 1
+      - path: Plaques
+        weight: 1
+      - path: Plaques/Cylinder
+        weight: 1
+      - path: Plaques/Cylinder_1
+        weight: 1
+      - path: Plaques/Cylinder_2
+        weight: 1
+      - path: Plaques/Cylinder_3
+        weight: 1
+      - path: Porte
+        weight: 1
+      - path: Porte/Cube_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: OpeningDoor
+      takeName: C4D Animation Take
+      firstFrame: 61
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boutons
+        weight: 1
+      - path: Boutons/Cylinder_4
+        weight: 1
+      - path: Boutons/Cylinder_5
+        weight: 1
+      - path: Boutons/Cylinder_6
+        weight: 1
+      - path: Boutons/Cylinder_7
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Plaque1
+        weight: 1
+      - path: Plaque2
+        weight: 1
+      - path: Plaques
+        weight: 1
+      - path: Plaques/Cylinder
+        weight: 1
+      - path: Plaques/Cylinder_1
+        weight: 1
+      - path: Plaques/Cylinder_2
+        weight: 1
+      - path: Plaques/Cylinder_3
+        weight: 1
+      - path: Porte
+        weight: 1
+      - path: Porte/Cube_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Open
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boutons
+        weight: 1
+      - path: Boutons/Cylinder_4
+        weight: 1
+      - path: Boutons/Cylinder_5
+        weight: 1
+      - path: Boutons/Cylinder_6
+        weight: 1
+      - path: Boutons/Cylinder_7
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Plaque1
+        weight: 1
+      - path: Plaque2
+        weight: 1
+      - path: Plaques
+        weight: 1
+      - path: Plaques/Cylinder
+        weight: 1
+      - path: Plaques/Cylinder_1
+        weight: 1
+      - path: Plaques/Cylinder_2
+        weight: 1
+      - path: Plaques/Cylinder_3
+        weight: 1
+      - path: Porte
+        weight: 1
+      - path: Porte/Cube_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Closed
+      takeName: C4D Animation Take
+      firstFrame: 60
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boutons
+        weight: 1
+      - path: Boutons/Cylinder_4
+        weight: 1
+      - path: Boutons/Cylinder_5
+        weight: 1
+      - path: Boutons/Cylinder_6
+        weight: 1
+      - path: Boutons/Cylinder_7
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Plaque1
+        weight: 1
+      - path: Plaque2
+        weight: 1
+      - path: Plaques
+        weight: 1
+      - path: Plaques/Cylinder
+        weight: 1
+      - path: Plaques/Cylinder_1
+        weight: 1
+      - path: Plaques/Cylinder_2
+        weight: 1
+      - path: Plaques/Cylinder_3
+        weight: 1
+      - path: Porte
+        weight: 1
+      - path: Porte/Cube_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,37 @@
+Cahier charges hes été 2017
+
+Projet - jeu (thème non défini) basé sur la manufacture
+=======================================================
+
+i. introduction 
+
+Il s'agit d'un premier projet sur le moteur de jeu Unity. Afin de prendre en main le moteur, nous avons décidé de prendre la direction d'un jeu 3d (unity fonctionnant en 3d de façon native) exploitant le moteur physique déjà en place du moteur.
+
+ii. description du projet
+
+- Le thème n'est pas encore défini (hésitation entre le thème de la cuisine et de l'usine). 
+- Utilisation de la mécanique de la manufacture - le joueur doit partir d'un produit de base et lui appliquer différentes transformations pour le transformer en produit fini. 
+- Ajout d'un élément arcade pour ajouter du challenge -> mécaniques telles que tapis roulants, élément de temps .. 
+
+iii. mvp
+
+(au départ, utilisation de primitives unity pour accélérer le prototypage)
+
+- mouvement 3d (30%)
+- prendre/lâcher objet (100%)
+- placer/prendre objet dans machine (0%)
+- machine transforme objet (0%)
+- conditions de victoire ? (0%)
+
+iv. pts chauds
+
+-
+
+v. not-so-mvp
+
+- créations de meshs/visuels
+- tapis roulants 
+- différentes recettes ..
+- ..
+
+

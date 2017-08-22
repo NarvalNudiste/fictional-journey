@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 8874462ee72a62a4e8854b982987684e
+timeCreated: 1503320019
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Boutons
+    100002: Cube
+    100004: Cube_2
+    100006: Cylinder
+    100008: Cylinder_1
+    100010: Cylinder_2
+    100012: Cylinder_3
+    100014: Cylinder_4
+    100016: Cylinder_5
+    100018: Cylinder_6
+    100020: Cylinder_7
+    100022: //RootNode
+    100024: Plaque1
+    100026: Plaque2
+    100028: Plaques
+    100030: Porte
+    400000: Boutons
+    400002: Cube
+    400004: Cube_2
+    400006: Cylinder
+    400008: Cylinder_1
+    400010: Cylinder_2
+    400012: Cylinder_3
+    400014: Cylinder_4
+    400016: Cylinder_5
+    400018: Cylinder_6
+    400020: Cylinder_7
+    400022: //RootNode
+    400024: Plaque1
+    400026: Plaque2
+    400028: Plaques
+    400030: Porte
+    2300000: Cube
+    2300002: Cube_2
+    2300004: Cylinder
+    2300006: Cylinder_1
+    2300008: Cylinder_2
+    2300010: Cylinder_3
+    2300012: Cylinder_4
+    2300014: Cylinder_5
+    2300016: Cylinder_6
+    2300018: Cylinder_7
+    2300020: Plaque1
+    2300022: Plaque2
+    2300024: Porte
+    3300000: Cube
+    3300002: Cube_2
+    3300004: Cylinder
+    3300006: Cylinder_1
+    3300008: Cylinder_2
+    3300010: Cylinder_3
+    3300012: Cylinder_4
+    3300014: Cylinder_5
+    3300016: Cylinder_6
+    3300018: Cylinder_7
+    3300020: Plaque1
+    3300022: Plaque2
+    3300024: Porte
+    4300000: Cylinder_3
+    4300002: Cylinder_2
+    4300004: Cylinder_1
+    4300006: Cylinder
+    4300008: Cylinder_7
+    4300010: Cylinder_6
+    4300012: Cylinder_5
+    4300014: Cylinder_4
+    4300016: Plaque1
+    4300018: Plaque2
+    4300020: Cube
+    4300022: Porte
+    4300024: Cube_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
