@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Factory : MonoBehaviour {
     private Animator animator;
+    private Light light;
     private ParticleSystem ps;
     public Transform itemPoint;
+    
     
     private enum states {
         CLOSED,
@@ -15,6 +17,8 @@ public class Factory : MonoBehaviour {
     private states currentState;
 
     void Start() {
+        light = GetComponentInChildren<Light>();
+        light.intensity = 0.0f;
         animator = GetComponent<Animator>();
         currentState = states.OPEN;
         animator.SetBool("open", true);
@@ -51,10 +55,12 @@ public class Factory : MonoBehaviour {
             if (currentState == states.OPEN) {
                 animator.SetBool("open", false);
                 ps.enableEmission = false;
+            light.intensity = 0.0f;
         }
             else {
                 animator.SetBool("open", true);
                 ps.enableEmission = true;
+            light.intensity = 1.0f;
         }
 
             if (currentItemIn != null) {
