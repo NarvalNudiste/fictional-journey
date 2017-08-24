@@ -6,7 +6,7 @@ public class CameraScript : MonoBehaviour {
     public Transform[] player;
     public Transform centerOfScene;
     private float lerpSpeed = 0.5f;
-    public bool centerOnPlayer = false;
+    public bool centerOnPlayer;
 	// Use this for initialization
 	void Start () {
 	}
@@ -18,8 +18,8 @@ public class CameraScript : MonoBehaviour {
         }
         else {
             Vector3 target;
-            if (player.Length == 0) {
-                target = Vector3.Lerp(centerOfScene.position, (player[0].transform.position), lerpSpeed);
+            if (player.Length == 1) {
+                target = Vector3.Lerp(centerOfScene.position, player[0].transform.position, lerpSpeed);
             }
             else {
                 Vector3 averagePos = new Vector3(0.0f, 0.0f, 0.0f);
