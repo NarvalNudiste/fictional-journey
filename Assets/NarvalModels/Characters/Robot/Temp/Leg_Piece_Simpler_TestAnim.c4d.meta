@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 23acfaea21dde1648851fde943d65614
+timeCreated: 1503655877
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Foot_Ankle_1
+    100002: Foot_Ankle_1_2
+    100004: Foot_Ankle_1_Goal
+    100006: Foot_Ankle_1_Goal_2
+    100008: HyperNURBS
+    100010: HyperNURBS_2
+    100012: Leg
+    100014: Leg_1
+    100016: Leg_2
+    100018: Leg_3
+    100020: Leg_Middle_1
+    100022: Leg_Middle_1_2
+    100024: //RootNode
+    100026: Leg_Upper_1
+    100028: Leg_Upper_1_2
+    100030: Legs
+    100032: Legs_2
+    100034: Rotule_Haute
+    100036: Rotule_Haute_2
+    100038: Rotule_Low
+    100040: Rotule_Low_2
+    100042: Rotule_Mid
+    100044: Rotule_Mid_2
+    400000: Foot_Ankle_1
+    400002: Foot_Ankle_1_2
+    400004: Foot_Ankle_1_Goal
+    400006: Foot_Ankle_1_Goal_2
+    400008: HyperNURBS
+    400010: HyperNURBS_2
+    400012: Leg
+    400014: Leg_1
+    400016: Leg_2
+    400018: Leg_3
+    400020: Leg_Middle_1
+    400022: Leg_Middle_1_2
+    400024: //RootNode
+    400026: Leg_Upper_1
+    400028: Leg_Upper_1_2
+    400030: Legs
+    400032: Legs_2
+    400034: Rotule_Haute
+    400036: Rotule_Haute_2
+    400038: Rotule_Low
+    400040: Rotule_Low_2
+    400042: Rotule_Mid
+    400044: Rotule_Mid_2
+    2300000: Foot_Ankle_1
+    2300002: Foot_Ankle_1_2
+    2300004: Leg_Middle_1
+    2300006: Leg_Middle_1_2
+    2300008: Leg_Upper_1
+    2300010: Leg_Upper_1_2
+    2300012: Rotule_Haute
+    2300014: Rotule_Haute_2
+    2300016: Rotule_Low
+    2300018: Rotule_Low_2
+    2300020: Rotule_Mid
+    2300022: Rotule_Mid_2
+    3300000: Foot_Ankle_1
+    3300002: Foot_Ankle_1_2
+    3300004: Leg_Middle_1
+    3300006: Leg_Middle_1_2
+    3300008: Leg_Upper_1
+    3300010: Leg_Upper_1_2
+    3300012: Rotule_Haute
+    3300014: Rotule_Haute_2
+    3300016: Rotule_Low
+    3300018: Rotule_Low_2
+    3300020: Rotule_Mid
+    3300022: Rotule_Mid_2
+    4300000: Rotule_Haute
+    4300002: Leg_Upper_1
+    4300004: Rotule_Mid
+    4300006: Leg_Middle_1
+    4300008: Rotule_Low
+    4300010: Foot_Ankle_1
+    4300012: Rotule_Haute_2
+    4300014: Leg_Upper_1_2
+    4300016: Rotule_Mid_2
+    4300018: Leg_Middle_1_2
+    4300020: Rotule_Low_2
+    4300022: Foot_Ankle_1_2
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

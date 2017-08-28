@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 69342a922b2fe5d48a8ddefb9173b6c5
+timeCreated: 1503671443
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube_1
+    100004: Cube_1_2
+    100006: Cube_1_3
+    100008: Cube_1_4
+    100010: Cube_2
+    100012: Cube_2_2
+    100014: Cube_3
+    100016: Cube_3_2
+    100018: Cube_4
+    100020: Cube_5
+    100022: Cylinder
+    100024: Foot_Ankle_1
+    100026: Foot_Ankle_1_2
+    100028: Head
+    100030: HyperNURBS_1
+    100032: Jonction
+    100034: Left_Leg
+    100036: LeftFootGoal
+    100038: Leg_Middle_1
+    100040: Leg_Middle_1_2
+    100042: Leg_Upper_1
+    100044: Leg_Upper_1_2
+    100046: Neck
+    100048: noeil
+    100050: noeil_2
+    100052: Oeil
+    100054: Pelvix
+    100056: Right_Leg
+    100058: RightFootGoal
+    100060: Robot
+    100062: //RootNode
+    100064: Rotule_Haute
+    100066: Rotule_Haute_2
+    100068: Rotule_Low
+    100070: Rotule_Low_2
+    100072: Rotule_Mid
+    100074: Rotule_Mid_2
+    100076: Sphere
+    100078: Sphere_1
+    100080: Sphere_2
+    100082: Sphere_3
+    100084: Teeths
+    100086: Toque
+    100088: tourDuNoeil
+    400000: Cube
+    400002: Cube_1
+    400004: Cube_1_2
+    400006: Cube_1_3
+    400008: Cube_1_4
+    400010: Cube_2
+    400012: Cube_2_2
+    400014: Cube_3
+    400016: Cube_3_2
+    400018: Cube_4
+    400020: Cube_5
+    400022: Cylinder
+    400024: Foot_Ankle_1
+    400026: Foot_Ankle_1_2
+    400028: Head
+    400030: HyperNURBS_1
+    400032: Jonction
+    400034: Left_Leg
+    400036: LeftFootGoal
+    400038: Leg_Middle_1
+    400040: Leg_Middle_1_2
+    400042: Leg_Upper_1
+    400044: Leg_Upper_1_2
+    400046: Neck
+    400048: noeil
+    400050: noeil_2
+    400052: Oeil
+    400054: Pelvix
+    400056: Right_Leg
+    400058: RightFootGoal
+    400060: Robot
+    400062: //RootNode
+    400064: Rotule_Haute
+    400066: Rotule_Haute_2
+    400068: Rotule_Low
+    400070: Rotule_Low_2
+    400072: Rotule_Mid
+    400074: Rotule_Mid_2
+    400076: Sphere
+    400078: Sphere_1
+    400080: Sphere_2
+    400082: Sphere_3
+    400084: Teeths
+    400086: Toque
+    400088: tourDuNoeil
+    2300000: Cube
+    2300002: Cube_1
+    2300004: Cube_1_2
+    2300006: Cube_1_3
+    2300008: Cube_1_4
+    2300010: Cube_2
+    2300012: Cube_2_2
+    2300014: Cube_3
+    2300016: Cube_3_2
+    2300018: Cube_4
+    2300020: Cube_5
+    2300022: Cylinder
+    2300024: Foot_Ankle_1
+    2300026: Foot_Ankle_1_2
+    2300028: Jonction
+    2300030: Leg_Middle_1
+    2300032: Leg_Middle_1_2
+    2300034: Leg_Upper_1
+    2300036: Leg_Upper_1_2
+    2300038: Neck
+    2300040: noeil
+    2300042: noeil_2
+    2300044: Pelvix
+    2300046: Rotule_Haute
+    2300048: Rotule_Haute_2
+    2300050: Rotule_Low
+    2300052: Rotule_Low_2
+    2300054: Rotule_Mid
+    2300056: Rotule_Mid_2
+    2300058: Toque
+    2300060: tourDuNoeil
+    3300000: Cube
+    3300002: Cube_1
+    3300004: Cube_1_2
+    3300006: Cube_1_3
+    3300008: Cube_1_4
+    3300010: Cube_2
+    3300012: Cube_2_2
+    3300014: Cube_3
+    3300016: Cube_3_2
+    3300018: Cube_4
+    3300020: Cube_5
+    3300022: Cylinder
+    3300024: Foot_Ankle_1
+    3300026: Foot_Ankle_1_2
+    3300028: Jonction
+    3300030: Leg_Middle_1
+    3300032: Leg_Middle_1_2
+    3300034: Leg_Upper_1
+    3300036: Leg_Upper_1_2
+    3300038: Neck
+    3300040: noeil
+    3300042: noeil_2
+    3300044: Pelvix
+    3300046: Rotule_Haute
+    3300048: Rotule_Haute_2
+    3300050: Rotule_Low
+    3300052: Rotule_Low_2
+    3300054: Rotule_Mid
+    3300056: Rotule_Mid_2
+    3300058: Toque
+    3300060: tourDuNoeil
+    4300000: Cube_3
+    4300002: Cube_2
+    4300004: Cube_1
+    4300006: Cube
+    4300008: Cube_1_2
+    4300010: Cube_2_2
+    4300012: Cube_1_3
+    4300014: Cube_3_2
+    4300016: Cube_4
+    4300018: Cylinder
+    4300020: noeil
+    4300022: tourDuNoeil
+    4300024: noeil_2
+    4300026: Toque
+    4300028: Neck
+    4300030: Jonction
+    4300032: Pelvix
+    4300034: Rotule_Haute
+    4300036: Leg_Upper_1
+    4300038: Rotule_Mid
+    4300040: Leg_Middle_1
+    4300042: Rotule_Low
+    4300044: Foot_Ankle_1
+    4300046: Rotule_Haute_2
+    4300048: Leg_Upper_1_2
+    4300050: Rotule_Mid_2
+    4300052: Leg_Middle_1_2
+    4300054: Rotule_Low_2
+    4300056: Foot_Ankle_1_2
+    4300058: Cube_1_4
+    4300060: Cube_5
+    7400000: SillyWalking
+    7400002: Standing
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SillyWalking
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: HyperNURBS_1
+        weight: 1
+      - path: HyperNURBS_1/Robot
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Cube_1_4
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Cube_5
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Cylinder
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Leg_Upper_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid/Leg_Middle_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid/Rotule_Low
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid/Rotule_Low/Foot_Ankle_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Leg_Upper_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2/Leg_Middle_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2/Rotule_Low_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2/Rotule_Low_2/Foot_Ankle_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil/noeil
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil/noeil_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil/tourDuNoeil
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_1_3
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_2_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_3
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_3_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_4
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere_3
+        weight: 1
+      - path: LeftFootGoal
+        weight: 1
+      - path: RightFootGoal
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Standing
+      takeName: C4D Animation Take
+      firstFrame: 33
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: HyperNURBS_1
+        weight: 1
+      - path: HyperNURBS_1/Robot
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Cube_1_4
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Cube_5
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Cylinder
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Leg_Upper_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid/Leg_Middle_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid/Rotule_Low
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Left_Leg/Rotule_Haute/Rotule_Mid/Rotule_Low/Foot_Ankle_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Leg_Upper_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2/Leg_Middle_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2/Rotule_Low_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Neck/Jonction/Pelvix/Right_Leg/Rotule_Haute_2/Rotule_Mid_2/Rotule_Low_2/Foot_Ankle_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil/noeil
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil/noeil_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Oeil/tourDuNoeil
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_1_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_1_3
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_2_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_3
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_3_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Teeths/Cube_4
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere_1
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere_2
+        weight: 1
+      - path: HyperNURBS_1/Robot/Head/Toque/Sphere_3
+        weight: 1
+      - path: LeftFootGoal
+        weight: 1
+      - path: RightFootGoal
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
