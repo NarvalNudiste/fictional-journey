@@ -30,7 +30,7 @@ abstract class AbstractFood : MonoBehaviour
 	protected bool canSpice = false;
 	protected bool canDeliver = true;
 
-	void Update()
+	void Update()//use time USE DELTA TIEM
 	{
 		if (isCooking) 
 		{
@@ -139,5 +139,24 @@ abstract class AbstractFood : MonoBehaviour
 	}
 	public bool getSpcicePerm(){
 		return canSpice;
+	}
+
+	public void setCooking(bool value){
+		if (canCook && value)
+			isCooking = true;
+		else
+			isCooking = false;
+	}
+	public void setSlicing(bool value){
+		if (canSlice && value)
+			isSlicing = true;
+		else
+			isSlicing = false;
+	}
+		public void setSpicing(bool value){
+		if (canSpice && value)
+			isSpicing = true;
+		else
+			isSpicing = false;
 	}
 }

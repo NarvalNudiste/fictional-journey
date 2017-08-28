@@ -15,7 +15,7 @@ class Apple: AbstractFood
 	public GameObject squashedApple = null;
 	public GameObject burnedSlicedApple = null;
 
-	void Start()
+	void Awake()
 	{
 		foodName = "Apple";
 		color = Color.red;

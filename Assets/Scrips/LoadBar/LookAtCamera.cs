@@ -5,27 +5,28 @@ using UnityEngine;
 public class LookAtCamera : MonoBehaviour 
 {
 	public Camera currentCamera;
-	private Transform transform_;
 	private Loader loader;
 
 	// Use this for initialization
 	void Start () {
-		transform_ = GetComponent<Transform> ();
+		//transform = GetComponent<Transform> ();
 		loader = GetComponentInChildren<Loader> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform_.LookAt (currentCamera.transform);
+		transform.LookAt (currentCamera.transform);
 	}
 
-	void setLoading(float value)
+	public void setLoading(float value)
 	{
+        if (loader != null)
 		loader.setLoading (value);
 	}
 
-	float getLoading()
-	{
-		return loader.getLoading ();
+	public float getLoading()
+	{   if (loader != null)
+            return loader.getLoading();
+        else return 0.0f;
 	}
 }
