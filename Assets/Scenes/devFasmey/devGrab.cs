@@ -11,6 +11,9 @@ public class devGrab : MonoBehaviour {
 	int playerNumber = 1;
 	string playerName;
 
+	const float dropStrenghtFront = 100;
+	const float dropStrenghtUp = 1000;
+
 	void Start () {
 		playerNumber = this.GetComponent<PlayerMovement>().playerNumber;
 		rigidBody = this.GetComponent<Rigidbody>();
@@ -19,11 +22,11 @@ public class devGrab : MonoBehaviour {
 		// Interaction.
 		if (Input.GetButtonDown("P"+playerNumber+"Fire1")) 
 		{
-			if (heldObject == null) //Empty hands -> grab something
+			if (heldObject == null)
 			{
 				grab ();
 			}
-			else // Filled hands -> drop it
+			else
 			{
 				drop ();
 			}
@@ -36,14 +39,14 @@ public class devGrab : MonoBehaviour {
 		}
 	}
 
-	void grab()
+	private void grab()
 	{
 		Collider[] coll = Physics.OverlapSphere(grabHitBox.position, grabRadius);
 		if (coll != null)
 		{
 			for (int i = 0; i < coll.Length; i++) 
 			{
-				GameObject objit = coll [i].GetComponent<GameObject> ();
+				GameObject objit = coll [i].gameObject;
 				if (objit.tag == "grabbable") // Grab item
 				{
 					heldObject = objit;
@@ -53,31 +56,45 @@ public class devGrab : MonoBehaviour {
 				else if (objit.tag == "machine") // Take content
 				{
 					heldObject = coll[i].GetComponent<abstractFurniture>().getItem();
-					// Collision false by default.
 					break;
 				}
 			}
 		}
 	}
-	void drop()
+	private void drop()
 	{
 		Collider[] coll = Physics.OverlapSphere(grabHitBox.position, grabRadius);
 		if (coll != null) 
 		{
+			bool isFull = false;
 			for (int i = 0; i < coll.Length; i++) 
 			{
-				GameObject objit = coll [i].GetComponent<GameObject> ();
-				if (objit.tag == "machine") 
+				GameObject objit = coll [i].gameObject;
+				if (objit.tag == "machine") //Put in furnace.
 				{
-					// Collision false by default.
-					coll[i].GetComponent<abstractFurniture>().setItem(heldObject);
-					heldObject = null;
-					break;
+					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject)) 
+					{
+						heldObject = null;
+						isFull = true; // If the furnace was full, at least don't drop the food on the floor.
+						return;
+					}
 				}
 			}
-			//if nothing to put it in, just drop it!
-			heldObject = null;
+			if (!isFull) 
+			{
+				//if nothing to put it in, just drop it!
+				Rigidbody heldRb = heldObject.GetComponent<Rigidbody> ();
+				heldRb.detectCollisions = true;
+
+				Rigidbody rb = GetComponent<Rigidbody> ();
+				Vector3 characterFront = (heldRb.position - rb.position).normalized * dropStrenghtFront;
+				characterFront.y = dropStrenghtUp;
+				heldRb.AddForce (characterFront);
+
+				heldObject = null;
+			}
 		}
 	}
+
 }
 

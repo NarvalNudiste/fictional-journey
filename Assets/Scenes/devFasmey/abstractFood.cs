@@ -12,10 +12,10 @@ abstract class AbstractFood : MonoBehaviour
 	protected bool isSlicing = false;
 	protected bool isSpicing = false;
 
-	protected const float timeMultiplier = 60; //60FPS -> 10 * 60 = 10s
-	protected float cookingTime = 10;
-	protected float slicingTime = 10;
-	protected float spicingTime = 10;
+	protected const float timeMultiplier = 1; // Delete this
+	protected float cookingTime = 200;
+	protected float slicingTime = 200;
+	protected float spicingTime = 200;
 
 	protected float timeSpentCooking = 0;
 	protected float timeSpentSlicing = 0;
@@ -30,7 +30,8 @@ abstract class AbstractFood : MonoBehaviour
 	protected bool canSpice = false;
 	protected bool canDeliver = true;
 
-	void Update()//use time USE DELTA TIEM
+	abstract protected void updateFood ();
+	void Update() // USE DELTA TIME
 	{
 		if (isCooking) 
 		{
@@ -60,7 +61,6 @@ abstract class AbstractFood : MonoBehaviour
 			}
 		}
 	}
-	abstract protected void updateFood ();
 
 	// Basic
 	public string getFoodname(){
@@ -78,7 +78,7 @@ abstract class AbstractFood : MonoBehaviour
 	}
 
 	// Time to process
-	public float GetCookingTime(int value){
+	public float GetCookingTime(){
 		return cookingTime;
 	}
 	protected  void SetCookingTime(float value){
@@ -96,6 +96,17 @@ abstract class AbstractFood : MonoBehaviour
 	}
 	protected void SetSpicingTime(float value){
 		spicingTime = value;
+	}
+
+	//Time spent processing
+	public float getTimeSpentCooking(){
+		return timeSpentCooking;
+	}
+	public float getTimeSpentSlicing(){
+		return timeSpentSlicing;
+	}
+	public float getTimeSpentSpicing(){
+		return timeSpentSpicing;
 	}
 
 	// Food's State
@@ -120,13 +131,13 @@ abstract class AbstractFood : MonoBehaviour
 			updateFood ();
 		}
 	}
-	public Cooking getCooking(){
+	public Cooking getCookingLvl(){
 		return cooking;
 	}
-	public Slicing getSlicing(){
+	public Slicing getSlicingLvl(){
 		return slicing;
 	}
-	public Spicing getSpicing(){
+	public Spicing getSpicingLvl(){
 		return spicing;
 	}
 
