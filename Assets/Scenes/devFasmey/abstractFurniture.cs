@@ -9,6 +9,8 @@ abstract class abstractFurniture : MonoBehaviour
 		CLOSED,
 		OPEN
 	}
+	public Transform itemPos = null;
+	public LookAtCamera loadBar = null;
 	protected AbstractFood content = null;
 	protected GameObject contentParent = null;
 	protected State state = State.OPEN;
@@ -16,14 +18,19 @@ abstract class abstractFurniture : MonoBehaviour
 	abstract protected bool canProcess (AbstractFood food); // Check if we can cook/slice/spice.
 	abstract protected void process (bool value);			// Set isCooking/isSlicing/isSpicing.
 	abstract protected void updateFurniture(); 				// Update animation & particules.
+	abstract protected void loadBarUpdate();
+
 	public bool setItem(GameObject item)
 	{
 		if (content == null) 
 		{
-			contentParent = item; // To avoid GetComponent access..
+			contentParent = item;
 			content =  item.GetComponent<AbstractFood>();
 			if (canProcess (content)) {
 				state = State.CLOSED;
+				loadBar.gameObject.SetActive (true);
+				contentParent.GetComponent<Rigidbody> ().Sleep ();
+				contentParent.transform.position = itemPos.position;
 				updateFurniture();
 				process (true);
 				return true;
@@ -40,10 +47,11 @@ abstract class abstractFurniture : MonoBehaviour
 	{
 		if (content != null) 
 		{
-			state = State.OPEN;
-			contentParent.SetActive (true);
-			content = null;
 			process (false);
+			state = State.OPEN;
+			loadBar.gameObject.SetActive (false);
+			contentParent.GetComponent<Rigidbody> ().WakeUp ();
+			content = null;
 			updateFurniture();
 			return contentParent;
 		} else
@@ -53,10 +61,16 @@ abstract class abstractFurniture : MonoBehaviour
 
 	void Update()
 	{
-		if (content != null && !canProcess (content)) 
+		if (content != null) 
 		{
-			process (false);
-			updateFurniture();
+			contentParent.transform.position = itemPos.position;
+			loadBarUpdate ();
+			if (!canProcess (content)) 
+			{
+				process (false);
+				loadBar.gameObject.SetActive (false);
+				updateFurniture();
+			}
 		}
 	}
 }
