@@ -6,6 +6,7 @@ public class goalCube : MonoBehaviour {
 
     Transform gameManager;
     MoneyCounter mc;
+    public Recipies r;
 
     // Use this for initialization
     void Start () {
@@ -24,10 +25,26 @@ public class goalCube : MonoBehaviour {
         if (col.gameObject.GetComponent<plate>() != null && col.gameObject.GetComponent<plate>().isComplete())
         {
             List<Transform> list = col.gameObject.GetComponent<plate>().getList();
-            foreach (Transform item in list)
+            /*foreach (Transform item in list)
             {
                 checkFood(item.gameObject.GetComponent<AbstractFood>());
+            }*/
+
+            bool result = true;
+
+            for (int i = 0; i < r.list.Count; i++)
+            {
+                if(r.list[i].GetComponent<AbstractFood>().cooking != list[i].GetComponent<AbstractFood>().cooking)
+                {
+                    result = false;
+                }
             }
+
+            if (result)
+            {
+                mc.setMoney(mc.getMoney() + r.price);
+            }
+
             col.gameObject.GetComponent<plate>().destroyList();
             Destroy(col.gameObject);
         }
