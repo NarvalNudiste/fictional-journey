@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MoneyCounter : MonoBehaviour {
     private Text moneyText;
-    int currentMoney = 10;
+    float currentMoney = 10;
     void Start() {
         moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
     }
     void Update() {
         moneyText.text = "moni : " + currentMoney + " $$$";
     }
-    public void setMoney(int _m) {
+    public void setMoney(float _m) {
         currentMoney = _m;
     }
-    public int getMoney() {
+    public float getMoney() {
         return currentMoney;
     }
 }

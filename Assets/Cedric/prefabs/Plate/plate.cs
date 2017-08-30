@@ -34,7 +34,12 @@ public class plate : MonoBehaviour {
 
     public void stackItem(Transform obj)
     {
-        stack.Add(obj);
+        
+        if(stack.Count<ToppingMax)
+        {
+            stack.Add(obj);
+        }
+
         if (stack.Count == ToppingMax)
         {
             complete = true;
@@ -44,5 +49,13 @@ public class plate : MonoBehaviour {
     public bool isComplete() { return complete; }
 
     public List<Transform> getList() { return stack; }
+
+    public void destroyList()
+    {
+        foreach (Transform item in stack)
+        {
+            Destroy(item.gameObject);
+        }
+    }
 
 }
