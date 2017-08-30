@@ -20,7 +20,7 @@ abstract class abstractFurniture : MonoBehaviour
 	abstract protected void updateFurniture(); 				// Update animation & particules.
 	abstract protected void loadBarUpdate();
 
-	public bool setItem(GameObject item)
+	virtual public bool setItem(GameObject item)
 	{
 		if (content == null) 
 		{
@@ -29,7 +29,9 @@ abstract class abstractFurniture : MonoBehaviour
 			if (canProcess (content)) {
 				state = State.CLOSED;
 				loadBar.gameObject.SetActive (true);
-				contentParent.GetComponent<Rigidbody> ().Sleep ();
+				Rigidbody rb = contentParent.GetComponent<Rigidbody> ();
+				rb.rotation = GetComponent<Rigidbody> ().rotation;
+				rb.Sleep ();
 				contentParent.transform.position = itemPos.position;
 				updateFurniture();
 				process (true);
@@ -43,7 +45,7 @@ abstract class abstractFurniture : MonoBehaviour
 		}
 		return false;
 	}
-	public GameObject getItem() 
+	virtual public GameObject getItem() 
 	{
 		if (content != null) 
 		{

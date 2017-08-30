@@ -7,19 +7,18 @@ public class devGrab : MonoBehaviour {
 	public Transform grabHitBox;
 	private Rigidbody rigidBody;
 	private GameObject heldObject;
-	float grabRadius = 1.0f;
+	float grabRadius = 2.0f;
 	int playerNumber = 1;
 	string playerName;
 
-	const float dropStrenghtFront = 100;
-	const float dropStrenghtUp = 1000;
+	const float dropStrenghtFront = 200;
+	const float dropStrenghtUp = 400;
 
 	void Start () {
 		playerNumber = this.GetComponent<PlayerMovement>().playerNumber;
 		rigidBody = this.GetComponent<Rigidbody>();
 	}
 	void Update () {
-		// Interaction.
 		if (Input.GetButtonDown("P"+playerNumber+"Fire1")) 
 		{
 			if (heldObject == null)
@@ -66,7 +65,6 @@ public class devGrab : MonoBehaviour {
 		Collider[] coll = Physics.OverlapSphere(grabHitBox.position, grabRadius);
 		if (coll != null) 
 		{
-			bool isFull = false;
 			for (int i = 0; i < coll.Length; i++) 
 			{
 				GameObject objit = coll [i].gameObject;
@@ -75,26 +73,20 @@ public class devGrab : MonoBehaviour {
 					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject)) 
 					{
 						heldObject = null;
-						isFull = true; // If the furnace was full, at least don't drop the food on the floor.
-						return;
 					}
+					return;
 				}
 			}
-			if (!isFull) 
-			{
-				//if nothing to put it in, just drop it!
-				Rigidbody heldRb = heldObject.GetComponent<Rigidbody> ();
-				heldRb.detectCollisions = true;
+			Rigidbody heldRb = heldObject.GetComponent<Rigidbody> ();
+			heldRb.detectCollisions = true;
 
-				Rigidbody rb = GetComponent<Rigidbody> ();
-				Vector3 characterFront = (heldRb.position - rb.position).normalized * dropStrenghtFront;
-				characterFront.y = dropStrenghtUp;
-				heldRb.AddForce (characterFront);
+			Rigidbody rb = GetComponent<Rigidbody> ();
+			Vector3 characterFront = (heldRb.position - rb.position).normalized * dropStrenghtFront;
+			characterFront.y = dropStrenghtUp;
+			heldRb.AddForce (characterFront);
 
-				heldObject = null;
-			}
+			heldObject = null;
 		}
 	}
-
 }
 
