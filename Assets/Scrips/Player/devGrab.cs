@@ -76,6 +76,11 @@ public class devGrab : MonoBehaviour {
 					}
 					return;
 				}
+
+                if(objit.GetComponent<plate>()!=null)
+                {
+                    objit.GetComponent<plate>().stackItem(heldObject.transform);
+                }
 			}
 			Rigidbody heldRb = heldObject.GetComponent<Rigidbody> ();
 			heldRb.detectCollisions = true;
