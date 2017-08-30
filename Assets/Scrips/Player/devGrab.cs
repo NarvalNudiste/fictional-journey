@@ -7,6 +7,7 @@ public class devGrab : MonoBehaviour {
 	public Transform grabHitBox;
 	private Rigidbody rigidBody;
 	private GameObject heldObject;
+	private Animator animator;
 	float grabRadius = 1.5f;
 	int playerNumber = 1;
 	string playerName;
@@ -17,6 +18,7 @@ public class devGrab : MonoBehaviour {
 	void Start () {
 		playerNumber = this.GetComponent<PlayerMovement>().playerNumber;
 		rigidBody = this.GetComponent<Rigidbody>();
+		animator = this.GetComponentInChildren<Animator>();
 	}
 	void Update () {
 		if (Input.GetButtonDown("P"+playerNumber+"Fire1")) 
@@ -31,10 +33,13 @@ public class devGrab : MonoBehaviour {
 			}
 		}
 		// Hold object in front of player.
-		if (heldObject != null) 
-		{
+		if (heldObject != null) {
 			heldObject.transform.position = heldPoint.position;
-			heldObject.GetComponent<Rigidbody>().velocity = rigidBody.velocity;
+			heldObject.GetComponent<Rigidbody> ().velocity = rigidBody.velocity;
+			animator.SetBool ("isHoldingSomething", true);
+		}
+		else {
+			animator.SetBool ("isHoldingSomething", false);
 		}
 	}
 
