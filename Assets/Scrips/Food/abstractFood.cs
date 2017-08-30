@@ -21,9 +21,9 @@ abstract class AbstractFood : MonoBehaviour
 	protected float timeSpentSlicing = 0;
 	protected float timeSpentSpicing = 0;
 
-	protected Cooking cooking = Cooking.RAW;
-	protected Slicing slicing = Slicing.NONE;
-	protected Spicing spicing = Spicing.NONE;
+	public Cooking cooking = Cooking.RAW;
+	public Slicing slicing = Slicing.NONE;
+	public Spicing spicing = Spicing.NONE;
 
 	protected bool canCook = false;
 	protected bool canSlice = false;
