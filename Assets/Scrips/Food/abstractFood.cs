@@ -170,4 +170,9 @@ abstract class AbstractFood : MonoBehaviour
 		else
 			isSpicing = false;
 	}
+
+    public float getPrice()
+    {
+        return price;
+    }
 }
