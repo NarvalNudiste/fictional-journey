@@ -7,7 +7,7 @@ public class devGrab : MonoBehaviour {
 	public Transform grabHitBox;
 	private Rigidbody rigidBody;
 	private GameObject heldObject;
-	float grabRadius = 2.0f;
+	float grabRadius = 1.5f;
 	int playerNumber = 1;
 	string playerName;
 

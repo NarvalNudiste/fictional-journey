@@ -41,17 +41,23 @@ class Furnace : abstractFurniture
 	{
 		if (content.getCookingLvl () < Cooking.BURNNING) 
 		{
-			switch (content.getCookingLvl ()) {
-			case Cooking.COOKED:
-				loadBar.setColor (Color.yellow);
-				break;
-			case Cooking.BURNED:
-				loadBar.setColor (Color.red);
-				break;
-			}
 			float value = content.getTimeSpentCooking () / (content.GetCookingTime () + 0.01f);
 			value = value - value % 0.05f + 0.05f;
 			loadBar.setLoading (value);
+			if (value == 0.05f) 
+			{
+				switch (content.getCookingLvl ()) {
+				case Cooking.RAW:
+					loadBar.setColor (Color.green);
+					break;
+				case Cooking.COOKED:
+					loadBar.setColor (Color.yellow);
+					break;
+				case Cooking.BURNED:
+					loadBar.setColor (Color.red);
+					break;
+				}
+			}
 		} else
 			loadBar.gameObject.SetActive (false);
 	}
