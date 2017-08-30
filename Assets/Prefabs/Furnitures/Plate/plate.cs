@@ -43,4 +43,6 @@ public class plate : MonoBehaviour {
 
     public bool isComplete() { return complete; }
 
+    public List<Transform> getList() { return stack; }
+
 }
