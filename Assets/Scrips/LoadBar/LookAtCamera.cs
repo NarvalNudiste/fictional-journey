@@ -6,15 +6,10 @@ public class LookAtCamera : MonoBehaviour
 {
 	public Camera currentCamera;
 	private Loader loader;
-	private Color color { get; set;}
 
-	// Use this for initialization
 	void Start () {
-		//transform = GetComponent<Transform> ();
 		loader = GetComponentInChildren<Loader> ();
 	}
-	
-	// Update is called once per frame
 	void Update () {
 		transform.LookAt (currentCamera.transform);
 	}
@@ -24,10 +19,18 @@ public class LookAtCamera : MonoBehaviour
         if (loader != null)
 		loader.setLoading (value);
 	}
-
 	public float getLoading()
 	{   if (loader != null)
             return loader.getLoading();
         else return 0.0f;
+	}
+
+	public void setColor(Color color)
+	{
+		loader.setColor (color);
+	}
+	public Color getColor()
+	{
+		return loader.getColor ();
 	}
 }
