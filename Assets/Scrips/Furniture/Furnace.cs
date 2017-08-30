@@ -39,8 +39,11 @@ class Furnace : abstractFurniture
 	}
 	protected override void loadBarUpdate()
 	{
-		float value = content.getTimeSpentCooking () / (content.GetCookingTime() + 0.01f);
-		value = value - value % 0.05f + 0.05f;
-		loadBar.setLoading (value);
+		if (content.getCookingLvl () < Cooking.BURNNING) 
+		{
+			float value = content.getTimeSpentCooking () / (content.GetCookingTime () + 0.01f);
+			value = value - value % 0.05f + 0.05f;
+			loadBar.setLoading (value);
+		}
 	}
 }

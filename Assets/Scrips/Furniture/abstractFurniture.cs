@@ -26,7 +26,7 @@ abstract class abstractFurniture : MonoBehaviour
 		{
 			contentParent = item;
 			content =  item.GetComponent<AbstractFood>();
-			if (canProcess (content)) {
+			if (content != null && canProcess (content)) {
 				state = State.CLOSED;
 				loadBar.gameObject.SetActive (true);
 				Rigidbody rb = contentParent.GetComponent<Rigidbody> ();

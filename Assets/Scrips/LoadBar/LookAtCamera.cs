@@ -6,6 +6,7 @@ public class LookAtCamera : MonoBehaviour
 {
 	public Camera currentCamera;
 	private Loader loader;
+	private Color color { get; set;}
 
 	// Use this for initialization
 	void Start () {
