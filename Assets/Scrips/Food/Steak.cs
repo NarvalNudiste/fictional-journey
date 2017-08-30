@@ -7,6 +7,7 @@ class Steak : AbstractFood {
 	public GameObject rawSteak = null;
 	public GameObject cookedSteak = null;
 	public GameObject burnedSteak = null;
+	public GameObject fire = null;
 
 	void Awake()
 	{
@@ -34,7 +35,7 @@ class Steak : AbstractFood {
 			burnedSteak.SetActive (true);
 			price = 0f;
 		} else if (cooking == Cooking.BURNNING) {
-			// Yay!
+			fire.SetActive(true);
 		}
 	}
 }
