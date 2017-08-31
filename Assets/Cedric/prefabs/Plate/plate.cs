@@ -35,7 +35,7 @@ public class plate : MonoBehaviour {
     public void stackItem(Transform obj)
     {
         
-        if(stack.Count<ToppingMax)
+        if(stack.Count<ToppingMax && obj.GetComponent<plate>()==null)
         {
             stack.Add(obj);
         }

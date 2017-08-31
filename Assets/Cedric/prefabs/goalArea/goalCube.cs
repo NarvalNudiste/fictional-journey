@@ -18,19 +18,24 @@ public class goalCube : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        int cpt = 0;
+        foreach (AbstractFood item in recipie)
+        {
+            item.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
+            item.gameObject.SetActive(true);
+            Vector3 pos = this.transform.position;
+            pos.y += 2+cpt* item.transform.localScale.y;
+            item.transform.position = pos;
+            cpt++;
+        }
 	}
 
     void OnCollisionEnter(Collision col)
     {
-        //test si assiète complète sinon pas accepté
+        //test si assiète complète sinon pas acceptée
         if (col.gameObject.GetComponent<plate>() != null && col.gameObject.GetComponent<plate>().isComplete())
         {
             List<Transform> list = col.gameObject.GetComponent<plate>().getList();
-            /*foreach (Transform item in list)
-            {
-                checkFood(item.gameObject.GetComponent<AbstractFood>());
-            }*/
 
             bool result = true;
 
@@ -51,10 +56,5 @@ public class goalCube : MonoBehaviour {
             col.gameObject.GetComponent<plate>().destroyList();
             Destroy(col.gameObject);
         }
-    }
-
-    void checkFood(AbstractFood f)
-    {
-        mc.setMoney(mc.getMoney() + f.getPrice());
     }
 }
