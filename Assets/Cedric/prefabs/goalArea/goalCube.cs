@@ -6,12 +6,14 @@ public class goalCube : MonoBehaviour {
 
     Transform gameManager;
     MoneyCounter mc;
-    public Recipies r;
+    private AbstractFood[] recipie;
+    public float recipiePrice;
 
     // Use this for initialization
     void Start () {
         gameManager = GameObject.Find("GameManager").GetComponent<Transform>();
         mc = gameManager.GetComponentInChildren<MoneyCounter>();
+        recipie = this.GetComponentsInChildren<AbstractFood>();
     }
 	
 	// Update is called once per frame
@@ -32,9 +34,9 @@ public class goalCube : MonoBehaviour {
 
             bool result = true;
 
-            for (int i = 0; i < r.list.Count; i++)
+            for (int i = 0; i < recipie.Length; i++)
             {
-                if(r.list[i].GetComponent<AbstractFood>().cooking != list[i].GetComponent<AbstractFood>().cooking)
+                if(recipie[i].cooking != list[i].GetComponent<AbstractFood>().cooking)
                 {
                     result = false;
                 }
@@ -42,7 +44,7 @@ public class goalCube : MonoBehaviour {
 
             if (result)
             {
-                mc.setMoney(mc.getMoney() + r.price);
+                mc.setMoney(mc.getMoney() + recipiePrice);
             }
 
             col.gameObject.GetComponent<plate>().destroyList();
