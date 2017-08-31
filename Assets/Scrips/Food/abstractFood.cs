@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class AbstractFood : MonoBehaviour 
+public abstract class AbstractFood : MonoBehaviour 
 {
 	protected string foodName = "Food";
 	protected Color color = Color.red;

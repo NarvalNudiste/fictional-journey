@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class abstractFurniture : MonoBehaviour 
+public abstract class abstractFurniture : MonoBehaviour 
 {
 	protected enum State 
 	{

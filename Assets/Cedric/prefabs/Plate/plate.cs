@@ -24,7 +24,7 @@ public class plate : MonoBehaviour {
         {
             item.GetComponent<Rigidbody>().detectCollisions = false;
             Vector3 v = c_rig.position;
-            v.y += cpt*item.localScale.y;
+            v.y += cpt*0.2f;
             item.GetComponent<Rigidbody>().position = v;
             item.GetComponent<Rigidbody>().velocity = c_rig.velocity;
             item.GetComponent<Rigidbody>().useGravity = false;
