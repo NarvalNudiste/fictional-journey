@@ -11,7 +11,6 @@ public class TrashCan : abstractFurniture {
             item.GetComponent<plate>().destroyList();
         }
         Destroy(item);
-        Debug.Log("lol rekt");
         return true;
     }
     override public GameObject getItem(){ return null; }
