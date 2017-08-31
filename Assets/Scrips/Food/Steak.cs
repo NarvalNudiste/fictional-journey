@@ -9,7 +9,7 @@ class Steak : AbstractFood {
 	public GameObject burnedSteak = null;
 	public GameObject fire = null;
 
-	void Start()
+	void Awake()
 	{
 		foodName = "Steak";
 		cookingTime = 600;
