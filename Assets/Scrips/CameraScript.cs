@@ -19,6 +19,9 @@ public class CameraScript : MonoBehaviour {
         else {
             Vector3 target;
             if (player.Length == 1) {
+				if (player [0].GetComponent<PlayerMovement> ().isDead ()) {
+					//todo
+				}
                 target = Vector3.Lerp(centerOfScene.position, player[0].transform.position, lerpSpeed);
             }
             else {
