@@ -14,7 +14,8 @@ public class Conveyor : MonoBehaviour {
 		convey *= strength;
 		foreach(Rigidbody rbibi in rb)
 		{
-			rbibi.velocity = convey;
+			float mag = rbibi.velocity.magnitude;
+			rbibi.velocity = (convey + rbibi.velocity).normalized * strength;
 		}
 	}
 }

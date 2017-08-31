@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class Pusher: MonoBehaviour
 {
-	private List<Rigidbody> plates = null;
+	private List<Rigidbody> onPlate = null;
 	private Vector3 pushVec;
 	private float strength = 1f;
+	private Rigidbody thisRb;
 
 	void Awake()
 	{
-		pushVec = new Vector3 (strength, 0, 0);
+		pushVec = new Vector3 (1, 1, 0).normalized;
+		onPlate = new List<Rigidbody> ();
+		thisRb = GetComponent<Rigidbody> ();
 	}
-	public void push (){
-		foreach (Rigidbody plate in plates) 
-		{
-			plate.AddForce (pushVec);
-		}
+	public void push ()
+	{
+		foreach (Rigidbody objit in onPlate)
+			objit.velocity = pushVec*strength;
 	}
 	void OnCollisionEnter(Collision col)
 	{
 		Rigidbody body = col.gameObject.GetComponent<Rigidbody> ();
 		if(body!=null)
-			plates.Add (body);
+			onPlate.Add (body);
 	}
 	void OnCollisionExit(Collision col)
 	{
 		Rigidbody body = col.gameObject.GetComponent<Rigidbody> ();
 		if (body != null)
-			plates.Remove (body);
+			onPlate.Remove (body);
 	}
 	public void setStrength(float powaaaa)
 	{
@@ -36,7 +38,8 @@ public class Pusher: MonoBehaviour
 	}
 	public void setPushVec(Vector3 vector)
 	{
-		pushVec = vector.normalized * strength;
+		pushVec = vector.normalized;
+		pushVec.y = 1;
 	}
 }
 

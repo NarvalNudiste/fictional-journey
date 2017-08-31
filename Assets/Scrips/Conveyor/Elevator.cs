@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour {
 
-	public List<GameObject> plates;
+	public List<GameObject> plates = new List<GameObject>();
+	public Transform startPoint;
+	public Transform endPoint;
 	public float speed = 0.02f;
-	public float endPos = 1.5f;
-	public float startPos = -1.5f;
-	public Vector3 startPoint;
-	public Vector3 endPoint;
+	public float pusherstrength = 2f;
 	private Vector3 conveyVec;
 	private Pusher pusher;
 
 	void Awake()
 	{
-		conveyVec = new Vector3 (0, speed, 0);
-		startPoint = new Vector3 (0, startPos, 0);
-		endPoint = new Vector3 (0, endPos, 0);
+		conveyVec = endPoint.position - startPoint.position;
+		int nbPlates = plates.Capacity;
+		Vector3 diffPos = conveyVec / nbPlates;
+		for (int i=0; i<nbPlates; i++) 
+		{
+			plates[i].GetComponent<Pusher> ().setStrength (pusherstrength);
+			plates [i].transform.position = startPoint.position + diffPos*i;
+		}
+		//speedVector
+		conveyVec = conveyVec.normalized * speed;
 	}
 	void Update () {
+		conveyVec = (endPoint.position - startPoint.position).normalized*speed;
 		foreach (GameObject plate in plates) 
 		{
-			plate.transform.Translate (conveyVec);
-			if (plate.transform.localPosition.y >= endPos) //teleport back to end pos
+			plate.transform.Translate (conveyVec, Space.World);
+			pusher = plate.GetComponent<Pusher> ();
+			pusher.setPushVec (conveyVec - new Vector3(0, conveyVec.y,0));
+			if (plate.transform.localPosition.y >= endPoint.localPosition.y) //teleport back to end pos
 			{
-				//pusher = plate.GetComponent<Pusher> ();
-				//pusher.push ();
-				plate.transform.position -= endPoint - startPoint;
+				pusher.push ();
+				plate.transform.position = startPoint.position;
 			}
 		}
 	}
