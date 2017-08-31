@@ -6,35 +6,43 @@ public class goalCube : MonoBehaviour {
 
     Transform gameManager;
     MoneyCounter mc;
-    public Recipies r;
+    private AbstractFood[] recipie;
+    public float recipiePrice;
 
     // Use this for initialization
     void Start () {
         gameManager = GameObject.Find("GameManager").GetComponent<Transform>();
         mc = gameManager.GetComponentInChildren<MoneyCounter>();
+        recipie = this.GetComponentsInChildren<AbstractFood>(true);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        int cpt = 0;
+        foreach (AbstractFood item in recipie)
+        {
+            item.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
+            item.gameObject.SetActive(true);
+            Vector3 pos = this.transform.position;
+            pos.y += 2+cpt* item.transform.localScale.y;
+            item.transform.position = pos;
+            cpt++;
+        }
 	}
 
     void OnCollisionEnter(Collision col)
     {
-        //test si assiète complète sinon pas accepté
+        //test si assiète complète sinon pas acceptée
         if (col.gameObject.GetComponent<plate>() != null && col.gameObject.GetComponent<plate>().isComplete())
         {
             List<Transform> list = col.gameObject.GetComponent<plate>().getList();
-            /*foreach (Transform item in list)
-            {
-                checkFood(item.gameObject.GetComponent<AbstractFood>());
-            }*/
 
             bool result = true;
 
-            for (int i = 0; i < r.list.Count; i++)
+            for (int i = 0; i < recipie.Length; i++)
             {
-                if(r.list[i].GetComponent<AbstractFood>().cooking != list[i].GetComponent<AbstractFood>().cooking)
+                Debug.Log("recipie :" + recipie[i].cookState + "// plate :" + list[i].GetComponent<AbstractFood>().cookState);
+                if(recipie[i].cookState != list[i].GetComponent<AbstractFood>().cookState)
                 {
                     result = false;
                 }
@@ -42,16 +50,11 @@ public class goalCube : MonoBehaviour {
 
             if (result)
             {
-                mc.setMoney(mc.getMoney() + r.price);
+                mc.setMoney(mc.getMoney() + recipiePrice);
             }
 
             col.gameObject.GetComponent<plate>().destroyList();
             Destroy(col.gameObject);
         }
-    }
-
-    void checkFood(AbstractFood f)
-    {
-        mc.setMoney(mc.getMoney() + f.getPrice());
     }
 }

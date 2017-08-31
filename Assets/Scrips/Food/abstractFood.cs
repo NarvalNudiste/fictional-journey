@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class AbstractFood : MonoBehaviour 
+public abstract class AbstractFood : MonoBehaviour 
 {
 	protected string foodName = "Food";
 	protected Color color = Color.red;
@@ -21,9 +21,9 @@ abstract class AbstractFood : MonoBehaviour
 	protected float timeSpentSlicing = 0;
 	protected float timeSpentSpicing = 0;
 
-	public Cooking cooking = Cooking.RAW;
-	public Slicing slicing = Slicing.NONE;
-	public Spicing spicing = Spicing.NONE;
+	public Cooking cookState = Cooking.RAW;
+	public Slicing sliceState = Slicing.NONE;
+	public Spicing spiceState = Spicing.NONE;
 
 	protected bool canCook = false;
 	protected bool canSlice = false;
@@ -31,6 +31,10 @@ abstract class AbstractFood : MonoBehaviour
 	protected bool canDeliver = true;
 
 	abstract protected void updateFood ();
+	void Start()
+	{
+		updateFood ();
+	}
 	void Update() // USE DELTA TIME
 	{
 		if (isCooking) 
@@ -112,33 +116,47 @@ abstract class AbstractFood : MonoBehaviour
 	// Food's State
 	protected void cook()
 	{
-		if (cooking != Cooking.BURNNING) {
-			cooking++;
+		if (cookState != Cooking.BURNNING) {
+			cookState++;
 			updateFood ();
 		}
 	}
 	protected void slice()
 	{
-		if (slicing != Slicing.MIXED) {
-			slicing++;
+		if (sliceState != Slicing.MIXED) {
+			sliceState++;
 			updateFood ();
 		}
 	}
 	protected void spice()
 	{
-		if (spicing != Spicing.LETHAL) {
-			spicing++;
+		if (spiceState != Spicing.LETHAL) {
+			spiceState++;
 			updateFood ();
 		}
 	}
-	public Cooking getCookingLvl(){
-		return cooking;
+
+	public void setCookState(Cooking cookuru){
+		cookState = cookuru;
+		updateFood ();
 	}
-	public Slicing getSlicingLvl(){
-		return slicing;
+	public void setSliceState(Slicing slicuru){
+		sliceState = slicuru;
+		updateFood ();
 	}
-	public Spicing getSpicingLvl(){
-		return spicing;
+	public void setSpiceState(Spicing spicuru){
+		spiceState = spicuru;
+		updateFood ();
+	}
+
+	public Cooking getCookState(){
+		return cookState;
+	}
+	public Slicing getSliceState(){
+		return sliceState;
+	}
+	public Spicing getSpiceState(){
+		return spiceState;
 	}
 
 	// Permissions { get }

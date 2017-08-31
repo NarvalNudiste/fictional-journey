@@ -39,14 +39,14 @@ class Furnace : abstractFurniture
 	}
 	protected override void loadBarUpdate()
 	{
-		if (content.getCookingLvl () < Cooking.BURNNING) 
+		if (content.getCookState () < Cooking.BURNNING) 
 		{
 			float value = content.getTimeSpentCooking () / (content.GetCookingTime () + 0.01f);
 			value = value - value % 0.05f + 0.05f;
 			loadBar.setLoading (value);
 			if (value == 0.05f) 
 			{
-				switch (content.getCookingLvl ()) {
+				switch (content.getCookState ()) {
 				case Cooking.RAW:
 					loadBar.setColor (Color.green);
 					break;

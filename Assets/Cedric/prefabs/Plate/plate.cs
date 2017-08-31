@@ -24,7 +24,7 @@ public class plate : MonoBehaviour {
         {
             item.GetComponent<Rigidbody>().detectCollisions = false;
             Vector3 v = c_rig.position;
-            v.y += cpt*item.localScale.y;
+            v.y += cpt*0.2f;
             item.GetComponent<Rigidbody>().position = v;
             item.GetComponent<Rigidbody>().velocity = c_rig.velocity;
             item.GetComponent<Rigidbody>().useGravity = false;
@@ -35,7 +35,7 @@ public class plate : MonoBehaviour {
     public void stackItem(Transform obj)
     {
         
-        if(stack.Count<ToppingMax)
+        if(stack.Count<ToppingMax && obj.GetComponent<plate>()==null)
         {
             stack.Add(obj);
         }

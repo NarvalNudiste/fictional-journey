@@ -37,24 +37,24 @@ class Apple: AbstractFood
 	}
 	override protected void updateFood ()
 	{
-		if (slicing == Slicing.SLICED) {
+		if (sliceState == Slicing.SLICED) {
 			rawApple.SetActive (false);
 			slicedApple.SetActive (true);
 			canCook = true;
 			price += 0.10f;
 			slicingTime = slicingTime * 0.5f;
-		} else if (cooking == Cooking.COOKED) {
+		} else if (cookState == Cooking.COOKED) {
 			slicedApple.SetActive (false);
 			cookedSlicedApple.SetActive (true);
 			canSlice = false;
 			price += 0.80f;
 			cookingTime = cookingTime * 0.33f;
-		} else if (slicing == Slicing.MIXED) {
+		} else if (sliceState == Slicing.MIXED) {
 			slicedApple.SetActive (false);
 			squashedApple.SetActive (true);
 			canSlice = false;
 			price = 0f;
-		} else if (cooking == Cooking.BURNED) {
+		} else if (cookState == Cooking.BURNED) {
 			cookedSlicedApple.SetActive (false);
 			burnedSlicedApple.SetActive (true);
 			canCook = false;
