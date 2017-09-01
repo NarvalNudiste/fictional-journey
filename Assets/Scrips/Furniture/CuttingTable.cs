@@ -15,8 +15,10 @@ public class CuttingTable : abstractFurniture {
 		if (state == State.OPEN) {
 			//animator.SetBool("open", false); 
 			setIsInteracting(false);
+			lastPlayerInteracting.GetComponentInChildren<Animator> ().SetBool ("isCutting", false);
 		} else {
 			//animator.SetBool("open", true);
+			lastPlayerInteracting.GetComponentInChildren<Animator> ().SetBool ("isCutting", true);
 			setIsInteracting(true);
 			Vector3 lookPoint = new Vector3 
 			(

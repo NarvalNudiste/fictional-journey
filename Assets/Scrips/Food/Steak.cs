@@ -20,6 +20,7 @@ class Steak : AbstractFood {
 		burnedSteak.SetActive (false);
 
 		canCook = true;
+		canSlice = true; //a virer
 		canDeliver = true;
 
 	}
