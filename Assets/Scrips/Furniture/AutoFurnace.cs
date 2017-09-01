@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class Furnace : abstractFurniture 
+class AutoFurnace : abstractFurniture 
 {
 	public ParticleSystem smoke = null;
 	public Light furnaceLight = null;
@@ -46,8 +46,7 @@ class Furnace : abstractFurniture
 			loadBar.setLoading (value);
 			if (value == 0.05f) 
 			{
-				switch (content.getCookState ()) 
-				{
+				switch (content.getCookState ()) {
 				case Cooking.RAW:
 					loadBar.setColor (Color.green);
 					break;

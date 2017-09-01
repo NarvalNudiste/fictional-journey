@@ -10,6 +10,7 @@ public class Carrot : AbstractFood {
 
 	void Awake()
 	{
+
 		foodName = "Carrot";
 		slicingTime = 300;
 		price = 0.10f; // base price of the raw carrot

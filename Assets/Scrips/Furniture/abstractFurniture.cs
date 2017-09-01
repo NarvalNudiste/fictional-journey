@@ -11,10 +11,13 @@ public abstract class abstractFurniture : MonoBehaviour
 	}
 	public Transform itemPos = null;
 	public LookAtCamera loadBar = null;
+	public Transform throwPoint = null;
+	public float throwVel = 10;
 	protected AbstractFood content = null;
 	protected GameObject contentParent = null;
 	protected State state = State.OPEN;
 	protected GameObject lastPlayerInteracting = null;
+	protected bool firstCycle = false;
 
 	abstract protected bool canProcess (AbstractFood food); // Check if we can cook/slice/spice.
 	abstract protected void process (bool value);			// Set isCooking/isSlicing/isSpicing.
@@ -62,6 +65,22 @@ public abstract class abstractFurniture : MonoBehaviour
 			return null;
 
 	}
+	void OnCollisionEnter(Collision col)
+	{
+		if (setItem (col.gameObject, null))
+			col.gameObject.GetComponent<Rigidbody> ().detectCollisions = false;
+	}
+	virtual public void ejectItem()
+	{
+		if (throwPoint != null) 
+		{	
+			GameObject toThrow = getItem ();
+			toThrow.GetComponent<Rigidbody> ().detectCollisions = true;
+			toThrow.transform.position = throwPoint.position;
+			Vector3 throwVec = throwPoint.position - transform.position + new Vector3 (0, transform.position.y, 0);
+			toThrow.GetComponent<Rigidbody> ().velocity = (throwVec.normalized + new Vector3 (0, 1, 0)).normalized * throwVel;
+		}
+	}
 	public void setIsInteracting(bool value)
 	{
 		PlayerMovement darum = lastPlayerInteracting.GetComponent<PlayerMovement>();
@@ -80,6 +99,13 @@ public abstract class abstractFurniture : MonoBehaviour
 				process (false);
 				loadBar.gameObject.SetActive (false);
 				updateFurniture();
+			}
+			if (loadBar.getLoading () == 1f)
+				firstCycle = true;
+			if (throwPoint != null && firstCycle && loadBar.getLoading () == 0.05f) 
+			{
+				ejectItem ();
+				firstCycle = false;
 			}
 		}
 	}
