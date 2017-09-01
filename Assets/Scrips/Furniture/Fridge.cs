@@ -4,7 +4,7 @@ using UnityEngine;
 
 class Fridge : abstractFurniture 
 {
-	override public bool setItem(GameObject item){ return false; }
+	override public bool setItem(GameObject item, GameObject player){ return false; }
 	override public GameObject getItem()
 	{
 		GameObject temp = GameObject.Instantiate (itemPos).gameObject;

@@ -14,16 +14,18 @@ public abstract class abstractFurniture : MonoBehaviour
 	protected AbstractFood content = null;
 	protected GameObject contentParent = null;
 	protected State state = State.OPEN;
+	protected GameObject lastPlayerInteracting = null;
 
 	abstract protected bool canProcess (AbstractFood food); // Check if we can cook/slice/spice.
 	abstract protected void process (bool value);			// Set isCooking/isSlicing/isSpicing.
 	abstract protected void updateFurniture(); 				// Update animation & particules.
 	abstract protected void loadBarUpdate();
 
-	virtual public bool setItem(GameObject item)
+	virtual public bool setItem(GameObject item, GameObject player)
 	{
 		if (content == null) 
 		{
+			lastPlayerInteracting = player;
 			contentParent = item;
 			content =  item.GetComponent<AbstractFood>();
 			if (content != null && canProcess (content)) {
