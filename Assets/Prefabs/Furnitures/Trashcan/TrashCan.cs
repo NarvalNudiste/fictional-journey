@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrashCan : abstractFurniture {
 
-    override public bool setItem(GameObject item)
+	override public bool setItem(GameObject item, GameObject player)
     {
         if (item.GetComponent<plate>()!= null)
         {

@@ -75,7 +75,7 @@ public class devGrab : MonoBehaviour {
 				GameObject objit = coll [i].gameObject;
 				if (objit.tag == "machine") //Put in furnace.
 				{
-					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject)) 
+					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject, gameObject)) 
 					{
 						heldObject = null;
 					}
