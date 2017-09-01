@@ -6,15 +6,11 @@ public class plate : MonoBehaviour {
 
     private List<Transform> stack;
     private Rigidbody c_rig;
-    private bool complete { get; set; }
-    private int ToppingMax;
 
     // Use this for initialization
     void Start () {
         stack = new List<Transform>();
         c_rig = this.transform.GetComponent<Rigidbody>();
-        complete = false;
-        ToppingMax = 2;
     }
 	
 	// Update is called once per frame
@@ -23,6 +19,7 @@ public class plate : MonoBehaviour {
         foreach (Transform item in stack)
         {
             item.GetComponent<Rigidbody>().detectCollisions = false;
+            item.GetComponent<Rigidbody>().rotation = c_rig.rotation;
             Vector3 v = c_rig.position;
             v.y += cpt*0.2f;
             item.GetComponent<Rigidbody>().position = v;
@@ -35,18 +32,13 @@ public class plate : MonoBehaviour {
     public void stackItem(Transform obj)
     {
         
-        if(stack.Count<ToppingMax && obj.GetComponent<plate>()==null)
+        if(obj.GetComponent<plate>()==null)
         {
             stack.Add(obj);
         }
-
-        if (stack.Count == ToppingMax)
-        {
-            complete = true;
-        }
     }
 
-    public bool isComplete() { return complete; }
+    public int numberOfToppings() { return stack.Count; }
 
     public List<Transform> getList() { return stack; }
 
