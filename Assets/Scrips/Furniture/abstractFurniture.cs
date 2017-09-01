@@ -62,6 +62,12 @@ public abstract class abstractFurniture : MonoBehaviour
 			return null;
 
 	}
+	public void setIsInteracting(bool value)
+	{
+		PlayerMovement darum = lastPlayerInteracting.GetComponent<PlayerMovement>();
+		if (darum != null)
+			darum.setIsInteracting (value);
+	}
 
 	void Update()
 	{

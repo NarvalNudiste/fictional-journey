@@ -13,9 +13,18 @@ public class CuttingTable : abstractFurniture {
 	protected override void updateFurniture()
 	{
 		if (state == State.OPEN) {
-			//animator.SetBool("open", false); // Not obvious... >_>
+			//animator.SetBool("open", false); 
+			setIsInteracting(false);
 		} else {
 			//animator.SetBool("open", true);
+			setIsInteracting(true);
+			Vector3 lookPoint = new Vector3 
+			(
+				transform.position.x, 
+				lastPlayerInteracting.transform.position.y, 
+				transform.position.z
+			);
+			lastPlayerInteracting.transform.LookAt(lookPoint);
 		}
 	}
 	protected override bool canProcess (AbstractFood food)
