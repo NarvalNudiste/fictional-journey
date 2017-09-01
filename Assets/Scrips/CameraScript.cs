@@ -7,22 +7,23 @@ public class CameraScript : MonoBehaviour {
     public Transform centerOfScene;
     private float lerpSpeed = 0.5f;
     public bool centerOnPlayer;
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
+
 	void Update () {
+		//todo fix camera
         if (centerOnPlayer) {
             transform.LookAt(player[0]);
         }
         else {
             Vector3 target;
-            if (player.Length == 1) {
-				if (player [0].GetComponent<PlayerMovement> ().isDead ()) {
-					//todo
+			if (player.Length == 1) {
+				Transform playerT = player [0].GetComponent<Transform> ();
+
+				if (playerT.GetComponent<PlayerMovement> ().isDead ()) {
+					target = Vector3.Lerp (playerT.GetComponent<PlayerMovement>().getLastDeathLocation(), centerOfScene.position, lerpSpeed);
+				} else {
+					target = Vector3.Lerp(centerOfScene.position, playerT.transform.position, lerpSpeed);
 				}
-                target = Vector3.Lerp(centerOfScene.position, player[0].transform.position, lerpSpeed);
+
             }
             else {
                 Vector3 averagePos = new Vector3(0.0f, 0.0f, 0.0f);
@@ -33,7 +34,7 @@ public class CameraScript : MonoBehaviour {
                 target = Vector3.Lerp(centerOfScene.position, averagePos, lerpSpeed);
             }
             transform.LookAt(target);
-        }
 
+        }
 	}
 }

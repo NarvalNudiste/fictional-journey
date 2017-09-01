@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 lastRotation;
     bool walking = false;
 
-	bool dead = false;
+
 
 	int deathTimer = 0;
 	int deathDelay = 100;
@@ -19,9 +19,17 @@ public class PlayerMovement : MonoBehaviour {
 
 	public Transform respawnLocation;
 
+	//death booleans
+	bool dead = false;
+	private Vector3 lastDeathLocation;
+	bool lockDeathLocation = false;
 	public bool isDead(){
 		return dead;
 	}
+	public Vector3 getLastDeathLocation(){
+		return lastDeathLocation;
+	}
+
 	void Start () {
         c_rig = transform.GetComponent<Rigidbody>();
         animator = this.GetComponentInChildren<Animator>();
@@ -47,12 +55,16 @@ public class PlayerMovement : MonoBehaviour {
 	void respawn(){
 		c_rig.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
 		c_rig.MovePosition(respawnLocation.position);
+		lockDeathLocation = true;
 	}
 	void testIfDead(){
 		Collider[] coll = Physics.OverlapSphere (this.transform.position, 0.2f);
 			for (int i = 0; i < coll.Length; i++){
 				if (coll[i].transform.gameObject.layer == 4){
 					dead = true;
+				if (lockDeathLocation == false) {
+					lastDeathLocation = this.transform.position;
+				}
 				}
 			}
 	}
