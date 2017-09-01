@@ -33,7 +33,7 @@ public class goalCube : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         //test si assiète complète sinon pas acceptée
-        if (col.gameObject.GetComponent<plate>() != null && col.gameObject.GetComponent<plate>().isComplete())
+        if (col.gameObject.GetComponent<plate>() != null && col.gameObject.GetComponent<plate>().numberOfToppings()==recipie.Length)
         {
             List<Transform> list = col.gameObject.GetComponent<plate>().getList();
 
@@ -42,7 +42,8 @@ public class goalCube : MonoBehaviour {
             for (int i = 0; i < recipie.Length; i++)
             {
                 Debug.Log("recipie :" + recipie[i].cookState + "// plate :" + list[i].GetComponent<AbstractFood>().cookState);
-                if(recipie[i].cookState != list[i].GetComponent<AbstractFood>().cookState)
+                if(recipie[i].cookState != list[i].GetComponent<AbstractFood>().cookState ||
+                   recipie[i].sliceState != list[i].GetComponent<AbstractFood>().sliceState)
                 {
                     result = false;
                 }
@@ -51,6 +52,10 @@ public class goalCube : MonoBehaviour {
             if (result)
             {
                 mc.setMoney(mc.getMoney() + recipiePrice);
+            }
+            else
+            {
+                mc.setMoney(mc.getMoney() - recipiePrice);
             }
 
             col.gameObject.GetComponent<plate>().destroyList();

@@ -17,7 +17,7 @@ public class LookAtCamera : MonoBehaviour
 	public void setLoading(float value)
 	{
         if (loader != null)
-		loader.setLoading (value);
+			loader.setLoading (value);
 	}
 	public float getLoading()
 	{   if (loader != null)
@@ -27,10 +27,13 @@ public class LookAtCamera : MonoBehaviour
 
 	public void setColor(Color color)
 	{
-		loader.setColor (color);
+		if (loader != null)
+			loader.setColor (color);
 	}
 	public Color getColor()
 	{
-		return loader.getColor ();
+		if (loader != null)
+			return loader.getColor ();
+		return Color.green;
 	}
 }
