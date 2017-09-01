@@ -75,6 +75,13 @@ ModelImporter:
     100134: Sky
     100136: Sternum
     100138: Sternum_Goal
+    100140: Cylinder_2
+    100142: HyperNURBS
+    100144: HyperNURBS_2
+    100146: Light_2
+    100148: Stachemou
+    100150: Oeil
+    100152: Toque
     400000: Back_Lower
     400002: Back_Lower_2
     400004: Back_Upper
@@ -145,6 +152,13 @@ ModelImporter:
     400134: Sky
     400136: Sternum
     400138: Sternum_Goal
+    400140: Cylinder_2
+    400142: HyperNURBS
+    400144: HyperNURBS_2
+    400146: Light_2
+    400148: Stachemou
+    400150: Oeil
+    400152: Toque
     2300000: Back_Lower
     2300002: Back_Lower_2
     2300004: Back_Upper
@@ -203,6 +217,10 @@ ModelImporter:
     2300110: Rotule_top_6
     2300112: Rotule_top_7
     2300114: Sternum
+    2300116: Cylinder_2
+    2300118: Stachemou
+    2300120: Oeil
+    2300122: Toque
     3300000: Back_Lower
     3300002: Back_Lower_2
     3300004: Back_Upper
@@ -261,6 +279,10 @@ ModelImporter:
     3300110: Rotule_top_6
     3300112: Rotule_top_7
     3300114: Sternum
+    3300116: Cylinder_2
+    3300118: Stachemou
+    3300120: Oeil
+    3300122: Toque
     4300000: Pelvis
     4300002: LowerBcak
     4300004: MidBack
@@ -319,12 +341,18 @@ ModelImporter:
     4300110: Cube_3
     4300112: Cube_2_2
     4300114: Cube_4
+    4300116: Stachemou
+    4300118: Cylinder_2
+    4300120: Toque
+    4300122: Oeil
     7400000: Idle
     7400002: Running
     7400004: Running W/Object
     7400006: Idle W/Object
+    7400008: Cutting
     9500000: //RootNode
     10800000: Light
+    10800002: Light_2
   materials:
     importMaterials: 1
     materialName: 0
@@ -388,7 +416,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -445,6 +473,34 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cutting
+      takeName: C4D Animation Take
+      firstFrame: 230
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
