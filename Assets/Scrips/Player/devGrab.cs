@@ -36,10 +36,10 @@ public class devGrab : MonoBehaviour {
 		if (heldObject != null) {
 			heldObject.transform.position = heldPoint.position;
 			heldObject.GetComponent<Rigidbody> ().velocity = rigidBody.velocity;
-			//animator.SetBool ("isHoldingSomething", true);
+			animator.SetBool ("isHoldingSomething", true);
 		}
 		else {
-			//animator.SetBool ("isHoldingSomething", false);
+			animator.SetBool ("isHoldingSomething", false);
 		}
 	}
 
