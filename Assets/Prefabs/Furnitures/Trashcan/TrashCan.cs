@@ -6,12 +6,16 @@ public class TrashCan : abstractFurniture {
 
 	override public bool setItem(GameObject item, GameObject player)
     {
-        if (item.GetComponent<plate>()!= null)
+        if(item.tag == "grabbable")
         {
-            item.GetComponent<plate>().destroyList();
+            if (item.GetComponent<plate>() != null)
+            {
+                item.GetComponent<plate>().destroyList();
+            }
+            Destroy(item);
+            return true;
         }
-        Destroy(item);
-        return true;
+        return false;
     }
     override public GameObject getItem(){ return null; }
     override protected bool canProcess(AbstractFood food) { return true; }
