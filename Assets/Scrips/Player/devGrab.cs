@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
 public class devGrab : MonoBehaviour {
 	public Transform heldPoint;
@@ -21,16 +22,13 @@ public class devGrab : MonoBehaviour {
 		animator = this.GetComponentInChildren<Animator>();
 	}
 	void Update () {
-		if (Input.GetButtonDown("P"+playerNumber+"Fire1")) 
+		if (Input.GetButtonDown ("P" + playerNumber + "Fire1")) 
 		{
 			if (heldObject == null)
-			{
 				grab ();
-			}
 			else
-			{
 				drop ();
-			}
+
 		}
 		// Hold object in front of player.
 		if (heldObject != null) {
@@ -52,16 +50,16 @@ public class devGrab : MonoBehaviour {
 			{
 				GameObject objit = coll [i].gameObject;
 				if (objit.tag == "grabbable") // Grab item
-				{
+				{ 
 					heldObject = objit;
-					heldObject.GetComponent<Rigidbody>().detectCollisions = false;
+					heldObject.GetComponent<Rigidbody> ().detectCollisions = false;
 					break;
-				}
+				} 
 				else if (objit.tag == "machine") // Take content
-				{
-					heldObject = coll[i].GetComponent<abstractFurniture>().getItem();
+				{ 
+					heldObject = coll [i].GetComponent<abstractFurniture> ().getItem ();
 					break;
-				}
+				} 
 			}
 		}
 	}
@@ -73,7 +71,7 @@ public class devGrab : MonoBehaviour {
 			for (int i = 0; i < coll.Length; i++) 
 			{
 				GameObject objit = coll [i].gameObject;
-				if (objit.tag == "machine") //Put in furnace.
+				if (objit.tag == "machine")	// Put food in furniture.
 				{
 					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject, gameObject)) 
 					{
@@ -81,8 +79,7 @@ public class devGrab : MonoBehaviour {
 					}
 					return;
 				}
-
-                if(objit.GetComponent<plate>()!=null)
+                else if(objit.GetComponent<plate>()!=null) // Put on plate
                 {
                     objit.GetComponent<plate>().stackItem(heldObject.transform);
                 }
@@ -94,6 +91,7 @@ public class devGrab : MonoBehaviour {
 			Vector3 characterFront = (heldRb.position - rb.position).normalized * dropStrenghtFront;
 			characterFront.y = dropStrenghtUp;
 			heldRb.AddForce (characterFront);
+			heldRb.detectCollisions = true;
 
 			heldObject = null;
 		}

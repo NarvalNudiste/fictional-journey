@@ -61,4 +61,5 @@ public class CuttingTable : abstractFurniture {
 		} else
 			loadBar.gameObject.SetActive (false);
 	}
+	void OnCollisionEnter(Collision col){}
 }

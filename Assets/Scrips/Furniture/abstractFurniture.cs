@@ -84,8 +84,11 @@ public abstract class abstractFurniture : MonoBehaviour
 	public void setIsInteracting(bool value)
 	{
 		PlayerMovement darum = lastPlayerInteracting.GetComponent<PlayerMovement>();
-		if (darum != null)
+		if (darum != null) 
+		{
 			darum.setIsInteracting (value);
+			darum.gameObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
+		}
 	}
 
 	void Update()
