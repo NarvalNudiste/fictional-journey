@@ -9,8 +9,10 @@ public class Timer : MonoBehaviour {
     private int frameCounter = 0;
     private int counterLimit = 60;
 
+	private bool timerEnded = false;
+
     //level timer
-    int timeLimit = 60;
+    int timeLimit = 3;
     
     //delay before timer start
     int timeDelay = 3;
@@ -19,9 +21,13 @@ public class Timer : MonoBehaviour {
         timerText = GameObject.Find("TimeText").GetComponent<Text>();
     }
 
-	void Update () {
+	void FixedUpdate () {
         if (timeLimit + timeDelay - (int)Time.timeSinceLevelLoad == 0) {
-            this.GetComponent<GameManager>().timerEnded();
+			if (timerEnded == false) {
+				this.GetComponent<GameManager>().timerEnded();
+				timerEnded = true;
+			}
+
         }
         if (Time.timeSinceLevelLoad < timeDelay) {
             timerText.text = "t1m3 : " + timeLimit;
@@ -32,12 +38,13 @@ public class Timer : MonoBehaviour {
                 frameCounter = 0;
                 timerText.text = "t1m3 : " + (timeLimit + timeDelay - (int)Time.timeSinceLevelLoad);
             }
-            frameCounter++;
+				frameCounter++;
         }
     }
 
     //To be called at level loading
     public void setTimer(int _tL) {
         timeLimit = _tL;
-    }
+		timerEnded = false;
+	}
 }
