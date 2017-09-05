@@ -13,12 +13,6 @@ public class devGrab : MonoBehaviour {
 	int playerNumber = 1;
 	string playerName;
 
-	Stopwatch stopwatch = new Stopwatch(); 
-	float holdDelay = 200f;
-	bool holdCheck = false;
-	bool holdFurniture = false;
-	bool interact = false;
-
 	const float dropStrenghtFront = 200;
 	const float dropStrenghtUp = 400;
 
@@ -28,10 +22,8 @@ public class devGrab : MonoBehaviour {
 		animator = this.GetComponentInChildren<Animator>();
 	}
 	void Update () {
-		holdOrClick ();
-		if (interact) 
+		if (Input.GetButtonDown ("P" + playerNumber + "Fire1")) 
 		{
-			interact = false;
 			if (heldObject == null)
 				grab ();
 			else
@@ -40,15 +32,8 @@ public class devGrab : MonoBehaviour {
 		}
 		// Hold object in front of player.
 		if (heldObject != null) {
-			if (holdFurniture) 
-			{
-				
-			} 
-			else 
-			{
-				heldObject.transform.position = heldPoint.position;
-				heldObject.GetComponent<Rigidbody> ().velocity = rigidBody.velocity;
-			}
+			heldObject.transform.position = heldPoint.position;
+			heldObject.GetComponent<Rigidbody> ().velocity = rigidBody.velocity;
 			animator.SetBool ("isHoldingSomething", true);
 		}
 		else {
@@ -64,27 +49,17 @@ public class devGrab : MonoBehaviour {
 			for (int i = 0; i < coll.Length; i++) 
 			{
 				GameObject objit = coll [i].gameObject;
-				if (objit.tag == "grabbable" && !holdFurniture) // Grab item
+				if (objit.tag == "grabbable") // Grab item
 				{ 
 					heldObject = objit;
 					heldObject.GetComponent<Rigidbody> ().detectCollisions = false;
 					break;
 				} 
-				else if (objit.tag == "machine" && !holdFurniture) // Take content
+				else if (objit.tag == "machine") // Take content
 				{ 
 					heldObject = coll [i].GetComponent<abstractFurniture> ().getItem ();
 					break;
 				} 
-				else if ( objit.tag == "movable" && holdFurniture) 
-				{
-					heldObject = objit;
-					Rigidbody objRb = heldObject.GetComponent<Rigidbody> ();
-					if(objRb != null)
-						objRb.detectCollisions = false;
-					foreach (Rigidbody ribi in heldObject.GetComponentsInChildren<Rigidbody>())
-						ribi.detectCollisions = false;
-					break;
-				}
 			}
 		}
 	}
@@ -96,22 +71,13 @@ public class devGrab : MonoBehaviour {
 			for (int i = 0; i < coll.Length; i++) 
 			{
 				GameObject objit = coll [i].gameObject;
-				if (objit.tag == "machine" && !holdFurniture)	// Put food in furniture.
+				if (objit.tag == "machine")	// Put food in furniture.
 				{
 					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject, gameObject)) 
 					{
 						heldObject = null;
 					}
 					return;
-				}
-				else if(objit.tag == "movable" && holdFurniture) // Drop furniture
-				{
-					Rigidbody objRb = heldObject.GetComponent<Rigidbody> ();
-					if(objRb != null)
-						objRb.detectCollisions = true;
-					foreach (Rigidbody ribi in heldObject.GetComponentsInChildren<Rigidbody>())
-						ribi.detectCollisions = true;
-					break;
 				}
                 else if(objit.GetComponent<plate>()!=null) // Put on plate
                 {
@@ -125,35 +91,9 @@ public class devGrab : MonoBehaviour {
 			Vector3 characterFront = (heldRb.position - rb.position).normalized * dropStrenghtFront;
 			characterFront.y = dropStrenghtUp;
 			heldRb.AddForce (characterFront);
+			heldRb.detectCollisions = true;
 
 			heldObject = null;
-		}
-	}
-	private void holdOrClick()
-	{
-		if (Input.GetButtonDown ("P" + playerNumber + "Fire1"))
-		{
-			stopwatch.Start ();
-			holdCheck = true;
-			holdFurniture = false; //reset after use
-		}
-		if(Input.GetButtonUp ("P" + playerNumber + "Fire1"))
-		{
-			stopwatch.Stop ();
-			stopwatch.Reset ();
-			holdCheck = false;
-			interact = true;
-		}
-		if(holdCheck)
-		{
-			if (stopwatch.ElapsedMilliseconds >= holdDelay) 
-			{
-				stopwatch.Stop ();
-				stopwatch.Reset ();
-				holdCheck = false;
-				interact = true;
-				holdFurniture = true;
-			}
 		}
 	}
 }

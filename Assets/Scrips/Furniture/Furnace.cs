@@ -8,10 +8,15 @@ class Furnace : abstractFurniture
 	public Light furnaceLight = null;
 	public Animator animator = null;
 
+	public AudioClip ovenDoor = null;
+
+	private AudioSource source;
+
 	void Start() 
 	{
 		animator = GetComponent<Animator>();
 		updateFurniture ();
+		source = GetComponent<AudioSource> ();
 	}
 
 	protected override void updateFurniture()
@@ -24,6 +29,10 @@ class Furnace : abstractFurniture
 			furnaceLight.intensity = 1f;
 			animator.SetBool("open", true);
 			smoke.enableEmission = true;
+			if (source != null && ovenDoor != null)
+				source.PlayOneShot (ovenDoor);
+			else
+				print ("null");
 		}
 	}
 	protected override bool canProcess (AbstractFood food)
