@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
 public class devGrab : MonoBehaviour {
 	public Transform heldPoint;
@@ -12,6 +13,12 @@ public class devGrab : MonoBehaviour {
 	int playerNumber = 1;
 	string playerName;
 
+	Stopwatch stopwatch = new Stopwatch(); 
+	float holdDelay = 200f;
+	bool holdCheck = false;
+	bool holdFurniture = false;
+	bool interact = false;
+
 	const float dropStrenghtFront = 200;
 	const float dropStrenghtUp = 400;
 
@@ -21,21 +28,28 @@ public class devGrab : MonoBehaviour {
 		animator = this.GetComponentInChildren<Animator>();
 	}
 	void Update () {
-		if (Input.GetButtonDown("P"+playerNumber+"Fire1")) 
+		holdOrClick ();
+		if (interact) 
 		{
+			print ("Interact. holdFur: " + holdFurniture);
+			interact = false;
 			if (heldObject == null)
-			{
 				grab ();
-			}
 			else
-			{
 				drop ();
-			}
+
 		}
 		// Hold object in front of player.
 		if (heldObject != null) {
-			heldObject.transform.position = heldPoint.position;
-			heldObject.GetComponent<Rigidbody> ().velocity = rigidBody.velocity;
+			if (holdFurniture) 
+			{
+				
+			} 
+			else 
+			{
+				heldObject.transform.position = heldPoint.position;
+				heldObject.GetComponent<Rigidbody> ().velocity = rigidBody.velocity;
+			}
 			animator.SetBool ("isHoldingSomething", true);
 		}
 		else {
@@ -51,15 +65,25 @@ public class devGrab : MonoBehaviour {
 			for (int i = 0; i < coll.Length; i++) 
 			{
 				GameObject objit = coll [i].gameObject;
-				if (objit.tag == "grabbable") // Grab item
+				if (objit.tag == "grabbable" && !holdFurniture) // Grab item
+				{ 
+					heldObject = objit;
+					heldObject.GetComponent<Rigidbody> ().detectCollisions = false;
+					break;
+				} 
+				else if (objit.tag == "machine" && !holdFurniture) // Take content
+				{ 
+					heldObject = coll [i].GetComponent<abstractFurniture> ().getItem ();
+					break;
+				} 
+				else if ( objit.tag == "movable" && holdFurniture) 
 				{
 					heldObject = objit;
-					heldObject.GetComponent<Rigidbody>().detectCollisions = false;
-					break;
-				}
-				else if (objit.tag == "machine") // Take content
-				{
-					heldObject = coll[i].GetComponent<abstractFurniture>().getItem();
+					Rigidbody objRb = heldObject.GetComponent<Rigidbody> ();
+					if(objRb != null)
+						objRb.detectCollisions = false;
+					foreach (Rigidbody ribi in heldObject.GetComponentsInChildren<Rigidbody>())
+						ribi.detectCollisions = false;
 					break;
 				}
 			}
@@ -73,7 +97,7 @@ public class devGrab : MonoBehaviour {
 			for (int i = 0; i < coll.Length; i++) 
 			{
 				GameObject objit = coll [i].gameObject;
-				if (objit.tag == "machine") //Put in furnace.
+				if (objit.tag == "machine" && !holdFurniture)	// Put food in furniture.
 				{
 					if (coll [i].GetComponent<abstractFurniture> ().setItem (heldObject, gameObject)) 
 					{
@@ -81,8 +105,16 @@ public class devGrab : MonoBehaviour {
 					}
 					return;
 				}
-
-                if(objit.GetComponent<plate>()!=null)
+				else if(objit.tag == "movable" && holdFurniture) // Drop furniture
+				{
+					Rigidbody objRb = heldObject.GetComponent<Rigidbody> ();
+					if(objRb != null)
+						objRb.detectCollisions = true;
+					foreach (Rigidbody ribi in heldObject.GetComponentsInChildren<Rigidbody>())
+						ribi.detectCollisions = true;
+					break;
+				}
+                else if(objit.GetComponent<plate>()!=null) // Put on plate
                 {
                     objit.GetComponent<plate>().stackItem(heldObject.transform);
                 }
@@ -96,6 +128,33 @@ public class devGrab : MonoBehaviour {
 			heldRb.AddForce (characterFront);
 
 			heldObject = null;
+		}
+	}
+	private void holdOrClick()
+	{
+		if (Input.GetButtonDown ("P" + playerNumber + "Fire1"))
+		{
+			stopwatch.Start ();
+			holdCheck = true;
+			holdFurniture = false; //reset after use
+		}
+		if(Input.GetButtonUp ("P" + playerNumber + "Fire1"))
+		{
+			stopwatch.Stop ();
+			stopwatch.Reset ();
+			holdCheck = false;
+			interact = true;
+		}
+		if(holdCheck)
+		{
+			if (stopwatch.ElapsedMilliseconds >= holdDelay) 
+			{
+				stopwatch.Stop ();
+				stopwatch.Reset ();
+				holdCheck = false;
+				interact = true;
+				holdFurniture = true;
+			}
 		}
 	}
 }
