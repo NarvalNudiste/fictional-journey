@@ -9,6 +9,8 @@ class Steak : AbstractFood {
 	public GameObject burnedSteak = null;
 	public GameObject fire = null;
 
+	private AudioSource source = null;
+
 	void Awake()
 	{
 		foodName = "Steak";
@@ -23,6 +25,8 @@ class Steak : AbstractFood {
 		canSlice = true; //a virer
 		canDeliver = true;
 
+		source = GetComponent<AudioSource> ();
+		source.loop = true;
 	}
 	override protected void updateFood ()
 	{
@@ -37,6 +41,7 @@ class Steak : AbstractFood {
 			price = 0f;
 		} else if (cookState == Cooking.BURNNING) {
 			fire.SetActive(true);
+			source.Play ();
 		}
 	}
 }

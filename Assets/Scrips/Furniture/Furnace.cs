@@ -8,9 +8,13 @@ class Furnace : abstractFurniture
 	public Light furnaceLight = null;
 	public Animator animator = null;
 
-	public AudioClip ovenDoor = null;
+	public AudioClip processSound = null;
+	public AudioClip takeSound = null;
+	public AudioClip putSound = null;
+	public AudioClip bellSound = null;
+	private AudioSource source = null;
 
-	private AudioSource source;
+	private bool bellOnce = true;
 
 	void Start() 
 	{
@@ -23,16 +27,26 @@ class Furnace : abstractFurniture
 	{
 		if (state == State.OPEN) {
 			furnaceLight.intensity = 0f;
-			animator.SetBool("open", false); // Not obvious... >_>
+			animator.SetBool ("open", false); // Not obvious... >_>
 			smoke.enableEmission = false;
+			if (source != null && takeSound != null) 
+			{
+				source.Stop ();
+				source.loop = false;
+				source.PlayOneShot (takeSound);
+				bellOnce = true;
+			}
 		} else {
 			furnaceLight.intensity = 1f;
-			animator.SetBool("open", true);
+			animator.SetBool ("open", true);
 			smoke.enableEmission = true;
-			if (source != null && ovenDoor != null)
-				source.PlayOneShot (ovenDoor);
-			else
-				print ("null");
+			if (source != null && processSound != null && putSound != null) 
+			{
+				source.loop = false;
+				source.PlayOneShot (putSound,0.25f);
+				source.loop = true;
+				source.Play();
+			}
 		}
 	}
 	protected override bool canProcess (AbstractFood food)
@@ -62,6 +76,11 @@ class Furnace : abstractFurniture
 					break;
 				case Cooking.COOKED:
 					loadBar.setColor (Color.yellow);
+					if (bellOnce) 
+					{
+						source.PlayOneShot (bellSound);
+						bellOnce = false;
+					}
 					break;
 				case Cooking.BURNED:
 					loadBar.setColor (Color.red);

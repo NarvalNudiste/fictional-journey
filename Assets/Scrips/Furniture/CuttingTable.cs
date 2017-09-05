@@ -2,22 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingTable : abstractFurniture {
+public class CuttingTable : abstractFurniture 
+{
+	public AudioClip takeSound = null;
+	public AudioClip processSound = null;
+	private AudioSource source = null;
 
 	void Start() 
 	{
-		//animator = GetComponent<Animator>();
-		//updateFurniture ();
+		source = GetComponent<AudioSource> ();
 	}
 
 	protected override void updateFurniture()
 	{
 		if (state == State.OPEN) {
-			//animator.SetBool("open", false); 
 			setIsInteracting(false);
 			lastPlayerInteracting.GetComponentInChildren<Animator> ().SetBool ("isCutting", false);
+			if (source != null && takeSound != null) 
+			{
+				source.Stop ();
+				source.loop = false;
+				source.PlayOneShot (takeSound);
+			}
+
 		} else {
-			//animator.SetBool("open", true);
 			lastPlayerInteracting.GetComponentInChildren<Animator> ().SetBool ("isCutting", true);
 			setIsInteracting(true);
 			Vector3 lookPoint = new Vector3 
@@ -27,6 +35,11 @@ public class CuttingTable : abstractFurniture {
 				transform.position.z
 			);
 			lastPlayerInteracting.transform.LookAt(lookPoint);
+			if (source != null && takeSound != null) 
+			{
+				source.loop = true;
+				source.PlayOneShot (processSound);
+			}
 		}
 	}
 	protected override bool canProcess (AbstractFood food)

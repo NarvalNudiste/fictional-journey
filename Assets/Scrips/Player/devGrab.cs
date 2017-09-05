@@ -16,10 +16,14 @@ public class devGrab : MonoBehaviour {
 	const float dropStrenghtFront = 200;
 	const float dropStrenghtUp = 400;
 
+	public AudioClip dropSound = null;
+	private AudioSource source = null;
+
 	void Start () {
 		playerNumber = this.GetComponent<PlayerMovement>().playerNumber;
 		rigidBody = this.GetComponent<Rigidbody>();
 		animator = this.GetComponentInChildren<Animator>();
+		source = GetComponent<AudioSource> ();
 	}
 	void Update () {
 		if (Input.GetButtonDown ("P" + playerNumber + "Fire1")) 
@@ -92,8 +96,9 @@ public class devGrab : MonoBehaviour {
 			characterFront.y = dropStrenghtUp;
 			heldRb.AddForce (characterFront);
 			heldRb.detectCollisions = true;
-
 			heldObject = null;
+
+			source.PlayOneShot (dropSound);
 		}
 	}
 }
