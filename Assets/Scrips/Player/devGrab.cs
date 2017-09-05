@@ -31,7 +31,6 @@ public class devGrab : MonoBehaviour {
 		holdOrClick ();
 		if (interact) 
 		{
-			print ("Interact. holdFur: " + holdFurniture);
 			interact = false;
 			if (heldObject == null)
 				grab ();
