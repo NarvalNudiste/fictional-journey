@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public Transform gameOverScreen;
-   
+	public Transform mayhemPoint;
     public void timerEnded() {
-
-        //todo
+		mayhemPoint.GetComponent<EXPLOSIONLOL> ().explode ();
     }
 }
