@@ -41,7 +41,7 @@ public class goalCube : MonoBehaviour {
 
             for (int i = 0; i < recipie.Length; i++)
             {
-                Debug.Log("recipie :" + recipie[i].cookState + "// plate :" + list[i].GetComponent<AbstractFood>().cookState);
+                //Debug.Log("recipie :" + recipie[i].cookState + "// plate :" + list[i].GetComponent<AbstractFood>().cookState);
                 if(recipie[i].cookState != list[i].GetComponent<AbstractFood>().cookState ||
                    recipie[i].sliceState != list[i].GetComponent<AbstractFood>().sliceState)
                 {
