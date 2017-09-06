@@ -70,6 +70,11 @@ public abstract class abstractFurniture : MonoBehaviour
 		if (setItem (col.gameObject, null))
 			col.gameObject.GetComponent<Rigidbody> ().detectCollisions = false;
 	}
+	void OnCollisionStay(Collision col)
+	{
+		if (setItem (col.gameObject, null))
+			col.gameObject.GetComponent<Rigidbody> ().detectCollisions = false;
+	}
 	virtual public void ejectItem()
 	{
 		if (throwPoint != null) 

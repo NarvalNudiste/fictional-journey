@@ -12,9 +12,6 @@ public class Elevator : MonoBehaviour {
 	private Vector3 conveyVec;
 	private Pusher pusher;
 
-	public AudioClip throwSound = null;
-	private AudioSource source = null;
-
 	void Awake()
 	{
 		conveyVec = endPoint.position - startPoint.position;
@@ -27,8 +24,6 @@ public class Elevator : MonoBehaviour {
 		}
 		//speedVector
 		conveyVec = conveyVec.normalized * speed;
-
-		source = GetComponent<AudioSource> ();
 	}
 	void Update () {
 		conveyVec = (endPoint.position - startPoint.position).normalized*speed;
@@ -40,8 +35,6 @@ public class Elevator : MonoBehaviour {
 			if (plate.transform.localPosition.y >= endPoint.localPosition.y) //teleport back to end pos
 			{
 				pusher.push ();
-				if (source != null && throwSound != null)
-					source.PlayOneShot (throwSound);
 				plate.transform.position = startPoint.position;
 			}
 		}

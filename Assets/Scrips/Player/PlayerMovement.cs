@@ -47,7 +47,9 @@ public class PlayerMovement : MonoBehaviour
 	{
         walking = this.inputVector == Vector3.zero ? false : true;
         animator.SetBool("isWalking", walking);
-		bool cond = GetComponent<Rigidbody> ().velocity.magnitude > 1f;
+		Vector3 tempVec = GetComponent<Rigidbody> ().velocity;
+		tempVec.y = 0;
+		bool cond =  tempVec.magnitude > 1f;
 		if (cond && playSoundOnce) {
 			playSoundOnce = false;
 			hasMoved = true;
