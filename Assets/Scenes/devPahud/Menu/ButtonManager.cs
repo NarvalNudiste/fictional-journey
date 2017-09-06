@@ -7,15 +7,25 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     private GameObject panel;
+    private bool multi;
 
     void Start()
     {
         panel = GameObject.FindGameObjectWithTag("ButtonPanel").gameObject;
+        multi = false;
     }
 
     public void newGame(string newGameLevel)
     {
-        SceneManager.LoadScene(newGameLevel);
+        if (!multi)
+        {
+            SceneManager.LoadScene(newGameLevel);
+        }
+        else
+        {
+            SceneManager.LoadScene(newGameLevel+"_multi");
+        }
+        
     }
 
     public void exitGame()
@@ -35,7 +45,11 @@ public class ButtonManager : MonoBehaviour
 
         panel.SetActive(!Hide);
         GetComponentInChildren<Image>(true).gameObject.SetActive(!Hide);
+        GetComponentInChildren<Toggle>(true).gameObject.SetActive(!Hide);
     }
 
-
+    public void toggle()
+    {
+        multi = !multi;
+    }
 }

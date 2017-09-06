@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour {
 	private bool timerEnded = false;
 
     //level timer
-    int timeLimit = 3;
+    int timeLimit = 60;
     
     //delay before timer start
     int timeDelay = 3;
