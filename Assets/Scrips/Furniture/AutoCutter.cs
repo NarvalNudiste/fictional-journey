@@ -2,66 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class AutoFurnace : abstractFurniture 
+public class AutoCutter : abstractFurniture
 {
-	public ParticleSystem smoke = null;
-
-	public AudioClip inAndOut = null;
+	public AudioClip outJumpSound = null;
+	public AudioClip inOutSound = null;
 	private AudioSource source = null;
-
 	void Start() 
 	{
-		source = GetComponent<AudioSource> ();
 		updateFurniture ();
+		source = GetComponent<AudioSource> ();
 	}
 
 	protected override void updateFurniture()
 	{
 		if (state == State.OPEN) {
-			smoke.enableEmission = false;
-			if (source != null && inAndOut != null) 
+			if (source != null && inOutSound != null && outJumpSound != null) 
 			{
 				source.Stop ();
-				source.PlayOneShot (inAndOut);
+				source.PlayOneShot (inOutSound);
+				source.PlayOneShot (outJumpSound);
 			}
 		} else {
-			smoke.enableEmission = true;
-			if (source != null && source.clip != null && inAndOut != null) 
+			if (source != null && source.clip != null && inOutSound != null) 
 			{
-				source.PlayOneShot (inAndOut);
+				source.PlayOneShot (inOutSound);
 				source.Play();
 			}
 		}
 	}
 	protected override bool canProcess (AbstractFood food)
 	{
-		if (content.getCookPerm ()) {
+		if (content.getSlicePerm()) {
 			return true;
 		} else
 			return false;
 	}
 	protected override void process (bool value)
 	{
-		content.setCooking (value);
+		content.setSlicing (value);
 	}
 	protected override void loadBarUpdate()
 	{
-		if (content.getCookState () < Cooking.BURNNING) 
+		if (content.getSliceState() < Slicing.MIXED) 
 		{
-			float value = content.getTimeSpentCooking () / (content.GetCookingTime () + 0.01f);
+			float value = content.getTimeSpentSlicing() / (content.GetSlicingTime () + 0.01f);
 			value = value - value % 0.05f + 0.05f;
 			loadBar.setLoading (value);
 			if (value == 0.05f) 
 			{
-				switch (content.getCookState ()) {
-				case Cooking.RAW:
+				switch (content.getSliceState ()) {
+				case Slicing.NONE:
 					loadBar.setColor (Color.green);
 					break;
-				case Cooking.COOKED:
+				case Slicing.SLICED:
 					loadBar.setColor (Color.yellow);
-					break;
-				case Cooking.BURNED:
-					loadBar.setColor (Color.red);
 					break;
 				}
 			}
