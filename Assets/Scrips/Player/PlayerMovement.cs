@@ -19,10 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
 	public Transform respawnLocation;
 
-	public AudioClip walkSound = null;
-	/*rivate AudioSource source = null;
+	private AudioSource source = null;
 	private bool playSoundOnce = true;
-	private bool hasMoved = false;*/
+	private bool hasMoved = false;
 
 	//death booleans
 	bool dead = false;
@@ -41,22 +40,24 @@ public class PlayerMovement : MonoBehaviour
 	{
         c_rig = transform.GetComponent<Rigidbody>();
         animator = this.GetComponentInChildren<Animator>();
-		//source = GetComponent<AudioSource> ();
+		source = GetComponent<AudioSource> ();
+		source.volume = 1f;
 	}
     void Update() 
 	{
         walking = this.inputVector == Vector3.zero ? false : true;
         animator.SetBool("isWalking", walking);
-		/*if (walking && playSoundOnce) {
+		bool cond = GetComponent<Rigidbody> ().velocity.magnitude > 1f;
+		if (cond && playSoundOnce) {
 			playSoundOnce = false;
 			hasMoved = true;
 			source.Play ();
 		}
-		if (!walking && hasMoved) {
+		if (!cond && hasMoved) {
 			playSoundOnce = true;
 			hasMoved = false;
 			source.Stop ();
-		}*/
+		}
         if (!dead && !isInteracting) 
 		{
             movement();

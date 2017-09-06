@@ -9,11 +9,16 @@ public class goalCube : MonoBehaviour {
     private AbstractFood[] recipie;
     public float recipiePrice;
 
+	public AudioClip win = null;
+	public AudioClip fail = null;
+	private AudioSource source = null;
+
     // Use this for initialization
     void Start () {
         gameManager = GameObject.Find("GameManager").GetComponent<Transform>();
         mc = gameManager.GetComponentInChildren<MoneyCounter>();
         recipie = this.GetComponentsInChildren<AbstractFood>(true);
+		source = GetComponent<AudioSource> ();
     }
 	
 	// Update is called once per frame
@@ -51,10 +56,14 @@ public class goalCube : MonoBehaviour {
 
             if (result)
             {
+				if(source != null && win != null)
+					source.PlayOneShot (win);
                 mc.setMoney(mc.getMoney() + recipiePrice);
             }
             else
             {
+				if(source != null && fail != null)
+					source.PlayOneShot (fail);
                 mc.setMoney(mc.getMoney() - recipiePrice);
             }
 

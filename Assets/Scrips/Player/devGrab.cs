@@ -98,7 +98,7 @@ public class devGrab : MonoBehaviour {
 			heldRb.detectCollisions = true;
 			heldObject = null;
 
-			source.PlayOneShot (dropSound);
+			source.PlayOneShot (dropSound, 1f);
 		}
 	}
 }

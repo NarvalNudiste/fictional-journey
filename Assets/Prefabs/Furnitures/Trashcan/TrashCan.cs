@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashCan : abstractFurniture {
+public class TrashCan : abstractFurniture 
+{
+	public AudioClip dropSound = null;
+	private AudioSource source = null;
 
+	void Start()
+	{
+		source = GetComponent<AudioSource> ();
+	}
 	override public bool setItem(GameObject item, GameObject player)
     {
         if(item.tag == "grabbable")
@@ -13,6 +20,9 @@ public class TrashCan : abstractFurniture {
                 item.GetComponent<plate>().destroyList();
             }
             Destroy(item);
+			if (source != null && dropSound != null) {
+				source.PlayOneShot (dropSound, 0.5f);
+			}
             return true;
         }
         return false;

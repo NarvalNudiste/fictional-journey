@@ -5,12 +5,12 @@ using UnityEngine;
 public class CuttingTable : abstractFurniture 
 {
 	public AudioClip takeSound = null;
-	public AudioClip processSound = null;
 	private AudioSource source = null;
 
 	void Start() 
 	{
 		source = GetComponent<AudioSource> ();
+		source.loop = true;
 	}
 
 	protected override void updateFurniture()
@@ -21,7 +21,6 @@ public class CuttingTable : abstractFurniture
 			if (source != null && takeSound != null) 
 			{
 				source.Stop ();
-				source.loop = false;
 				source.PlayOneShot (takeSound);
 			}
 
@@ -37,8 +36,7 @@ public class CuttingTable : abstractFurniture
 			lastPlayerInteracting.transform.LookAt(lookPoint);
 			if (source != null && takeSound != null) 
 			{
-				source.loop = true;
-				source.PlayOneShot (processSound);
+				source.Play ();
 			}
 		}
 	}
