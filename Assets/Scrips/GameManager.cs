@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour {
     }
 
 	void Update(){
-		if (Input.GetKey(KeyCode.Q)){
+		/*if (Input.GetKey(KeyCode.Q)){
 			Application.LoadLevel(0);
 		}
 		if (Input.GetKey(KeyCode.E)){
 				Application.LoadLevel(1);
-			}
+			}*/
 	}
     public void timerEnded() {
         shouldRespawn = false;
