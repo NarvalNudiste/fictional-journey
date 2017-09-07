@@ -6,38 +6,29 @@ class AutoFurnace : abstractFurniture
 {
 	public ParticleSystem smoke = null;
 
-	public AudioClip processSound = null;
-	public AudioClip takeSound = null;
-	public AudioClip putSound = null;
-	public AudioClip bellSound = null;
+	public AudioClip inAndOut = null;
 	private AudioSource source = null;
-
-	private bool bellOnce = true;
 
 	void Start() 
 	{
-		updateFurniture ();
 		source = GetComponent<AudioSource> ();
+		updateFurniture ();
 	}
 
 	protected override void updateFurniture()
 	{
 		if (state == State.OPEN) {
 			smoke.enableEmission = false;
-			if (source != null && takeSound != null) 
+			if (source != null && inAndOut != null) 
 			{
 				source.Stop ();
-				source.loop = false;
-				source.PlayOneShot (takeSound);
-				bellOnce = true;
+				source.PlayOneShot (inAndOut);
 			}
 		} else {
 			smoke.enableEmission = true;
-			if (source != null && processSound != null && putSound != null) 
+			if (source != null && source.clip != null && inAndOut != null) 
 			{
-				source.loop = false;
-				source.PlayOneShot (putSound,0.25f);
-				source.loop = true;
+				source.PlayOneShot (inAndOut);
 				source.Play();
 			}
 		}
@@ -62,18 +53,12 @@ class AutoFurnace : abstractFurniture
 			loadBar.setLoading (value);
 			if (value == 0.05f) 
 			{
-				switch (content.getCookState ()) 
-				{
+				switch (content.getCookState ()) {
 				case Cooking.RAW:
 					loadBar.setColor (Color.green);
 					break;
 				case Cooking.COOKED:
 					loadBar.setColor (Color.yellow);
-					if (bellOnce) 
-					{
-						source.PlayOneShot (bellSound);
-						bellOnce = false;
-					}
 					break;
 				case Cooking.BURNED:
 					loadBar.setColor (Color.red);
