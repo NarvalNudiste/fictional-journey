@@ -15,7 +15,7 @@ class Steak : AbstractFood {
 	{
 		foodName = "Steak";
 		cookingTime = 600;
-		price = 0.10f; // base price of the raw steak
+		price = 5f; // base price of the raw steak
 
 		rawSteak.SetActive (true);
 		cookedSteak.SetActive (false);

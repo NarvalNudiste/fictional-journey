@@ -13,7 +13,7 @@ public class Beacon : AbstractFood{
 		foodName = "Beacon";
 		color = Color.red;
 		cookingTime = 500;
-		price = 0.10f;
+		price = 4f;
 
 		rawBeacon.SetActive (true);
 		cookedBeacon.SetActive (false);

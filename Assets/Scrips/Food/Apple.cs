@@ -21,7 +21,7 @@ class Apple: AbstractFood
 		color = Color.red;
 		cookingTime = 10;
 		slicingTime = 5;
-		price = 0.10f; // base price of the raw apple
+		price = 1f; // base price of the raw apple
 
 		rawApple.SetActive (true); // display rawApple model
 		slicedApple.SetActive (false);

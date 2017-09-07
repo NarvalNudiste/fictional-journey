@@ -8,7 +8,7 @@ public class Bread : AbstractFood {
 	void Awake()
 	{
 		foodName = "Breade";
-		price = 0.10f;
+		price = 2f;
 		rawBread.SetActive (true);
 		canDeliver = true;
 	}

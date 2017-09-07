@@ -7,7 +7,7 @@ public class goalCube : MonoBehaviour {
     Transform gameManager;
     MoneyCounter mc;
     private AbstractFood[] recipie;
-    public float recipiePrice;
+    float recipiePrice;
 
 	public AudioClip win = null;
 	public AudioClip fail = null;
@@ -40,6 +40,7 @@ public class goalCube : MonoBehaviour {
         //test si assiète complète sinon pas acceptée
         if (col.gameObject.GetComponent<plate>() != null)
         {
+            recipiePrice = 0;
             List<Transform> list = col.gameObject.GetComponent<plate>().getList();
 
             bool result = true;
@@ -51,6 +52,10 @@ public class goalCube : MonoBehaviour {
                    recipie[i].sliceState != list[i].GetComponent<AbstractFood>().sliceState)
                 {
                     result = false;
+                }
+                else
+                {
+                    recipiePrice += list[i].GetComponent<AbstractFood>().getPrice();
                 }
             }
 
