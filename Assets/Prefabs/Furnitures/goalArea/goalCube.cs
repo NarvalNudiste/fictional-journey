@@ -47,11 +47,12 @@ public class goalCube : MonoBehaviour {
 
             for (int i = 0; i < recipie.Length; i++)
             {
-                //Debug.Log("recipie :" + recipie[i].cookState + "// plate :" + list[i].GetComponent<AbstractFood>().cookState);
+                //Debug.Log("recipie :" + recipie[i].name + "// plate :" + list[i].GetComponent<AbstractFood>().name);
                 if(recipie[i].cookState != list[i].GetComponent<AbstractFood>().cookState ||
-                   recipie[i].sliceState != list[i].GetComponent<AbstractFood>().sliceState)
+                   recipie[i].sliceState != list[i].GetComponent<AbstractFood>().sliceState ||
+                   recipie[i].name.Equals(list[i].GetComponent<AbstractFood>().name))
                 {
-                    result = false;
+                    recipiePrice -= list[i].GetComponent<AbstractFood>().getPrice();
                 }
                 else
                 {
@@ -59,18 +60,10 @@ public class goalCube : MonoBehaviour {
                 }
             }
 
-            if (result)
-            {
-				if(source != null && win != null)
-					source.PlayOneShot (win);
-                mc.setMoney(mc.getMoney() + recipiePrice);
-            }
-            else
-            {
-				if(source != null && fail != null)
-					source.PlayOneShot (fail);
-                mc.setMoney(mc.getMoney() - recipiePrice);
-            }
+			if(source != null && win != null)
+				source.PlayOneShot (win);
+            mc.setMoney(mc.getMoney() + recipiePrice);
+
 
             col.gameObject.GetComponent<plate>().destroyList();
             Destroy(col.gameObject);
