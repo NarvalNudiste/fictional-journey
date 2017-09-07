@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour 
 {
+	private GameManager gm;
+
     public int playerNumber;
     private Rigidbody c_rig;
     private Vector3 inputVector;
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start () 
 	{
+		gm = GameObject.FindObjectOfType<GameManager> ();
         c_rig = transform.GetComponent<Rigidbody>();
         animator = this.GetComponentInChildren<Animator>();
 		source = GetComponent<AudioSource> ();
@@ -79,9 +82,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void respawn()
 	{
-		c_rig.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
-		c_rig.MovePosition(respawnLocation.position);
-		lockDeathLocation = true;
+		if (gm.shouldRespawn) {
+			c_rig.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
+			c_rig.MovePosition(respawnLocation.position);
+			lockDeathLocation = true;
+		}
 	}
 	void testIfDead()
 	{

@@ -13,7 +13,7 @@ public class Carrot : AbstractFood {
 
 		foodName = "Carrot";
 		slicingTime = 300;
-		price = 0.10f; // base price of the raw carrot
+		price = 1f; // base price of the raw carrot
 
 		rawCarrot.SetActive(true);
 		slicedCarrot.SetActive (false);

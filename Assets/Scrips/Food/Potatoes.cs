@@ -11,7 +11,7 @@ public class Potatoes : AbstractFood {
 		foodName = "Potatoes";
 		slicingTime = 200;
 		cookingTime = 1200;
-		price = 0.20f;
+		price = 10f;
 
 		if (slicedModel != null) {
 			slicedModel.SetActive (false);

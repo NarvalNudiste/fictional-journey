@@ -16,7 +16,7 @@ public class Egg : AbstractFood {
 		color = Color.white;
 		cookingTime = 300;
 		slicingTime = 200;
-		price = 0.10f; // base price of the raw apple
+		price = 1f; // base price of the raw apple
 
 		rawEgg.SetActive (true);
 		openEgg.SetActive(false);
