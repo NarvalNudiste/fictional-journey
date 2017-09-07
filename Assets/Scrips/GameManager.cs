@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
     public Transform gameOverScreen;
 	public Transform mayhemPoint;
     public void timerEnded() {
-		mayhemPoint.GetComponent<EXPLOSIONLOL> ().explode ();
+        GetComponentInChildren<FinishScreen>(true).gameObject.SetActive(true);
+        GetComponentInChildren<FinishScreen>(true).show(GetComponent<MoneyCounter>().getMoney());
+        mayhemPoint.GetComponent<EXPLOSIONLOL> ().explode ();
     }
 }
