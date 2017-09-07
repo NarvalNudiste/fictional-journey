@@ -22,6 +22,7 @@ class Steak : AbstractFood {
 		burnedSteak.SetActive (false);
 
 		canCook = true;
+		canSlice = true;
 		canDeliver = true;
 
 		source = GetComponent<AudioSource> ();
