@@ -38,7 +38,7 @@ public class goalCube : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         //test si assiète complète sinon pas acceptée
-        if (col.gameObject.GetComponent<plate>() != null && col.gameObject.GetComponent<plate>().numberOfToppings()==recipie.Length)
+        if (col.gameObject.GetComponent<plate>() != null)
         {
             List<Transform> list = col.gameObject.GetComponent<plate>().getList();
 
