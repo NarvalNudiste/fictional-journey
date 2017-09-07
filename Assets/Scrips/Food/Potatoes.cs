@@ -25,7 +25,7 @@ public class Potatoes : AbstractFood {
 			rawModel.SetActive (true);
 		}
 		if (puree != null) {
-			puree.SetActive (true);
+			puree.SetActive (false);
 		}
 		if (cookedModel != null) {
 			cookedModel.SetActive (false);
@@ -42,6 +42,7 @@ public class Potatoes : AbstractFood {
 			rawModel.SetActive (false);
 			slicedModel.SetActive (true);
 			cookedModel.SetActive (false);
+			puree.SetActive (false);
 			price += 0.30f;
 			slicingTime = slicingTime * 0.5f;
 		}
