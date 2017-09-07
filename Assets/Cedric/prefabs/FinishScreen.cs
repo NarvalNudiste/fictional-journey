@@ -9,9 +9,8 @@ public class FinishScreen : MonoBehaviour {
 
 	public void show(float score)
     {
-        Debug.Log("yo");
         Text txt = GameObject.FindGameObjectWithTag("score").GetComponent<Text>();
-        txt.text = score.ToString();
+        txt.text = score.ToString()+"$";
     }
 
     public void nextLevel(string level)
