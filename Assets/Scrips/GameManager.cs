@@ -10,9 +10,18 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+		this.gameObject.AddComponent<MusicSingleton> ();
         shouldRespawn = true;
     }
 
+	void Update(){
+		if (Input.GetKey(KeyCode.Q)){
+			Application.LoadLevel(0);
+		}
+		if (Input.GetKey(KeyCode.E)){
+				Application.LoadLevel(1);
+			}
+	}
     public void timerEnded() {
         shouldRespawn = false;
         PlayerMovement[] players = GameObject.FindObjectsOfType<PlayerMovement>();
