@@ -1,10 +1,15 @@
 fileFormatVersion: 2
-guid: 0177581365e638e4b9956e8e0abee04c
-timeCreated: 1504615874
+guid: 25db6bb7e456efc4aa4870bd29e380b6
+timeCreated: 1504794649
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube_1
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,7 +79,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
