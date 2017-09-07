@@ -50,6 +50,7 @@ public class Potatoes : AbstractFood {
 			slicedModel.SetActive (false);
 			cookedModel.SetActive (false);
 			puree.SetActive (true);
+			canCook = false;
 			price += 1.0f;
 		}
 		if (cookState == Cooking.COOKED) {

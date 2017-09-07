@@ -8,7 +8,7 @@ public class MusicPlayer : MonoBehaviour {
 	void Awake(){
 		mainMusicPlayer = this.gameObject.AddComponent<AudioSource> ();
 		mainMusicPlayer.clip = Resources.Load ("AmusingSteak") as AudioClip;
-		mainMusicPlayer.volume = 0.5f;
+		mainMusicPlayer.volume = 0.2f;
 		mainMusicPlayer.loop = true;
 		mainMusicPlayer.Play ();
 	}
