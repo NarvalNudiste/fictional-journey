@@ -15,13 +15,25 @@ public class GameManager : MonoBehaviour {
     }
 
 	void Update(){
-		/*if (Input.GetKey(KeyCode.Q)){
-			Application.LoadLevel(0);
+		/*if (Input.GetKey(KeyCode.F1)){
+			Application.LoadLevel("level1");
 		}
-		if (Input.GetKey(KeyCode.E)){
-				Application.LoadLevel(1);
-			}*/
-	}
+		if (Input.GetKey(KeyCode.F2)){
+				Application.LoadLevel("level2");
+		}
+        if (Input.GetKey(KeyCode.F3))
+        {
+            Application.LoadLevel("level1_multi");
+        }
+        if (Input.GetKey(KeyCode.F4))
+        {
+            Application.LoadLevel("level2_multi");
+        }
+        if (Input.GetKey(KeyCode.F5))
+        {
+            Application.LoadLevel("menu");
+        }*/
+    }
     public void timerEnded() {
         shouldRespawn = false;
         PlayerMovement[] players = GameObject.FindObjectsOfType<PlayerMovement>();

@@ -8,6 +8,7 @@ public class goalCube : MonoBehaviour {
     MoneyCounter mc;
     private AbstractFood[] recipie;
     float recipiePrice;
+    bool result;
 
 	public AudioClip win = null;
 	public AudioClip fail = null;
@@ -19,6 +20,7 @@ public class goalCube : MonoBehaviour {
         mc = gameManager.GetComponentInChildren<MoneyCounter>();
         recipie = this.GetComponentsInChildren<AbstractFood>(true);
 		source = GetComponent<AudioSource> ();
+        result = true;
     }
 	
 	// Update is called once per frame
@@ -53,6 +55,7 @@ public class goalCube : MonoBehaviour {
                    recipie[i].name.Equals(list[i].GetComponent<AbstractFood>().name))
                 {
                     recipiePrice -= list[i].GetComponent<AbstractFood>().getPrice();
+                    result = false;
                 }
                 else
                 {
@@ -60,10 +63,18 @@ public class goalCube : MonoBehaviour {
                 }
             }
 
-			if(source != null && win != null)
-				source.PlayOneShot (win);
-            mc.setMoney(mc.getMoney() + recipiePrice);
+            if (result)
+            {
+                if (source != null && win != null)
+                    source.PlayOneShot(win);
+            }
+            else
+            {
+                if (source != null && win != null)
+                    source.PlayOneShot(fail);
+            }
 
+            mc.setMoney(mc.getMoney() + recipiePrice);
 
             col.gameObject.GetComponent<plate>().destroyList();
             Destroy(col.gameObject);
